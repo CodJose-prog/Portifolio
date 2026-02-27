@@ -27,7 +27,7 @@ export type ProjectCaseStudy = {
 export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     slug: "arena-calendar",
-    image: "/projects/arena-calendar.svg",
+    image: "/projects/arenacalendar.png",
     liveUrl: "https://arena-calendar.com",
     name: {
       pt: "ArenaCalendar",
@@ -112,7 +112,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   },
   {
     slug: "mavik",
-    image: "/projects/mavik.svg",
+    image: "/projects/mavik.png",
     liveUrl: "https://mavik.cloud",
     name: {
       pt: "MAVIK",
@@ -197,7 +197,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   },
   {
     slug: "va-imports",
-    image: "/projects/va-imports.svg",
+    image: "/projects/vaimports.png",
     name: {
       pt: "VA Imports",
       en: "VA Imports",
