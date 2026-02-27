@@ -198,6 +198,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     slug: "va-imports",
     image: "/projects/vaimports.png",
+    liveUrl: "https://vaimport.com.br",
     name: {
       pt: "VA Imports",
       en: "VA Imports",

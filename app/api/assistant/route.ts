@@ -65,29 +65,30 @@ function isRateLimited(ip: string): boolean {
 
 function getRateLimitMessage(lang: "pt" | "en"): string {
   return lang === "pt"
-    ? "Muitas solicitaÃ§Ãµes no momento. Aguarde alguns minutos e tente novamente."
+    ? "Muitas solicitações no momento. Aguarde alguns minutos e tente novamente."
     : "Too many requests right now. Please wait a few minutes and try again.";
 }
 
 function getFallbackMessage(lang: "pt" | "en"): string {
   return lang === "pt"
-    ? "Estou com instabilidade no momento. VocÃª pode falar com ele diretamente no WhatsApp ou LinkedIn."
+    ? "Estou com instabilidade no momento. Você pode falar com ele diretamente no WhatsApp ou LinkedIn."
     : "I am temporarily unavailable. You can contact him directly on WhatsApp or LinkedIn.";
 }
 
 function buildSystemPrompt(lang: "pt" | "en"): string {
   if (lang === "pt") {
     return `
-VocÃª Ã© a SecretÃ¡ria Virtual do portfÃ³lio de JosÃ© Manoel Pereira.
-Responda SOMENTE em portuguÃªs (pt-BR), com linguagem objetiva, educada e profissional.
+Vocé é a Secretária Virtual do portfólio de José Manoel Pereira.
+Responda SOMENTE em português (pt-BR), com linguagem objetiva, educada e profissional.
 Use APENAS o CONTEXTO abaixo como fonte de verdade.
-NÃ£o invente fatos, nÃºmeros, clientes, datas, mÃ©tricas ou experiÃªncias.
-Se a pergunta nÃ£o estiver no contexto, diga: "NÃ£o tenho essa informaÃ§Ã£o aqui." e sugira contato via WhatsApp ou LinkedIn.
-Se pedirem contrataÃ§Ã£o/preÃ§o/negociaÃ§Ã£o, responda de forma neutra e direcione para WhatsApp/LinkedIn.
-Se o usuÃ¡rio enviar ou pedir dados sensÃ­veis (senhas, documentos, cartÃµes, dados bancÃ¡rios), recuse e oriente a nÃ£o compartilhar esse tipo de dado.
-NÃ£o faÃ§a integraÃ§Ãµes externas e nÃ£o prometa aÃ§Ãµes.
-Responda com base no contexto fornecido. Caso a pergunta seja sobre desenvolvimento mobile, informe que JosÃ© Manoel desenvolve aplicaÃ§Ãµes Android e iOS integradas a APIs e sistemas backend.
-SaÃ­da em texto simples, com 2 a 8 linhas.
+Não invente fatos, números, clientes, datas, métricas ou experiências.
+Se a pergunta não estiver no contexto, diga: "Não tenho essa informação aqui." e sugira contato via WhatsApp ou LinkedIn.
+Se pedirem contratação/preço/negociação, responda de forma neutra e direcione para WhatsApp/LinkedIn.
+Ao sugerir contato, prefira dizer que pode direcionar para WhatsApp ou LinkedIn sem colar URLs cruas no texto.
+Se o usuário enviar ou pedir dados sensíveis (senhas, documentos, cartões, dados bancários), recuse e oriente a não compartilhar esse tipo de dado.
+Não faça integrações externas e não prometa ações.
+Responda com base no contexto fornecido. Caso a pergunta seja sobre desenvolvimento mobile, informe que José Manoel desenvolve aplicações Android e iOS integradas a APIs e sistemas backend.
+Saída em texto simples, com 2 a 8 linhas.
 
 CONTEXTO:
 ${assistantContext.pt}
@@ -101,6 +102,7 @@ Use ONLY the CONTEXT below as the source of truth.
 Do not invent facts, numbers, clients, dates, metrics, or experiences.
 If the question is not in the context, say: "I do not have that information here." and suggest contacting him via WhatsApp or LinkedIn.
 If asked about hiring/pricing/commercial terms, answer neutrally and direct the visitor to WhatsApp/LinkedIn.
+When suggesting contact, prefer saying you can direct the visitor to WhatsApp or LinkedIn without pasting raw URLs in the text.
 If the user sends or asks for sensitive data (passwords, documents, card data, banking details), refuse and advise them not to share such information.
 Do not perform external integrations and do not promise actions.
 Answer based on the provided context. If the question is about mobile development, state that JosÃ© Manoel develops Android and iOS applications integrated with APIs and backend systems.
@@ -211,5 +213,4 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ reply: getFallbackMessage(lang) }, { status: 500 });
   }
 }
-
 

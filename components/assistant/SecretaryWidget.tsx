@@ -1,8 +1,21 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Loader2, MessageCircle, Send, Trash2, X } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  Instagram,
+  Linkedin,
+  Loader2,
+  MessageCircle,
+  Send,
+  Trash2,
+  X,
+} from "lucide-react";
 import type { Lang } from "@/lib/i18n";
+import { siteConfig } from "@/lib/site";
+import { extractLinksFromText, type ExtractedLink } from "@/lib/chat/extractLinks";
+import { Button } from "@/components/ui/button";
 
 type SecretaryWidgetProps = {
   lang: Lang;
@@ -168,6 +181,22 @@ export function SecretaryWidget({ lang }: SecretaryWidgetProps) {
     }
   }
 
+  function renderLinkIcon(type: ExtractedLink["type"]) {
+    if (type === "whatsapp") {
+      return <MessageCircle className="size-3.5" aria-hidden />;
+    }
+    if (type === "linkedin") {
+      return <Linkedin className="size-3.5" aria-hidden />;
+    }
+    if (type === "github") {
+      return <Github className="size-3.5" aria-hidden />;
+    }
+    if (type === "instagram") {
+      return <Instagram className="size-3.5" aria-hidden />;
+    }
+    return <ExternalLink className="size-3.5" aria-hidden />;
+  }
+
   return (
     <>
       <button
@@ -245,18 +274,48 @@ export function SecretaryWidget({ lang }: SecretaryWidgetProps) {
                 </p>
               ) : null}
 
-              {messages.map((message) => (
-                <article
-                  key={message.id}
-                  className={
-                    message.role === "user"
-                      ? "ml-auto max-w-[90%] rounded-2xl rounded-br-md bg-primary px-3 py-2 text-sm text-primary-foreground"
-                      : "max-w-[90%] rounded-2xl rounded-bl-md border border-border bg-card px-3 py-2 text-sm text-foreground"
-                  }
-                >
-                  <p className="whitespace-pre-line">{message.content}</p>
-                </article>
-              ))}
+              {messages.map((message) => {
+                const isAssistant = message.role === "assistant";
+                const { cleanText, links } = isAssistant
+                  ? extractLinksFromText(message.content, siteConfig)
+                  : { cleanText: message.content, links: [] };
+
+                return (
+                  <article
+                    key={message.id}
+                    className={
+                      message.role === "user"
+                        ? "ml-auto max-w-[90%] rounded-2xl rounded-br-md bg-primary px-3 py-2 text-sm text-primary-foreground"
+                        : "max-w-[90%] rounded-2xl rounded-bl-md border border-border bg-card px-3 py-2 text-sm text-foreground"
+                    }
+                  >
+                    {cleanText ? <p className="whitespace-pre-line">{cleanText}</p> : null}
+
+                    {isAssistant && links.length > 0 ? (
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {links.map((link) => (
+                          <Button
+                            key={`${message.id}-${link.type}-${link.url}`}
+                            asChild
+                            size="sm"
+                            variant={link.type === "whatsapp" ? "default" : "outline"}
+                          >
+                            <a
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={link.label[lang]}
+                            >
+                              {renderLinkIcon(link.type)}
+                              {link.label[lang]}
+                            </a>
+                          </Button>
+                        ))}
+                      </div>
+                    ) : null}
+                  </article>
+                );
+              })}
 
               {loading ? (
                 <div className="inline-flex items-center gap-2 rounded-2xl rounded-bl-md border border-border bg-card px-3 py-2 text-sm text-muted-foreground">
