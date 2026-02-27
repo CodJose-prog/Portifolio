@@ -1,0 +1,9 @@
+<svg width="720" height="420" viewBox="0 0 720 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="420" rx="26" fill="#08162E"/>
+  <rect x="28" y="28" width="664" height="364" rx="18" stroke="#2F66D6" stroke-opacity="0.8"/>
+  <rect x="70" y="88" width="580" height="62" rx="10" fill="#10316C"/>
+  <rect x="70" y="182" width="172" height="166" rx="12" fill="#1E4C9A"/>
+  <rect x="274" y="182" width="172" height="166" rx="12" fill="#1A3F82"/>
+  <rect x="478" y="182" width="172" height="166" rx="12" fill="#163770"/>
+  <text x="70" y="70" font-family="Arial, sans-serif" font-size="24" fill="#E2ECFF">Multi-tenant SaaS Architecture</text>
+</svg>
