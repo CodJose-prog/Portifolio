@@ -1,11 +1,11 @@
-import { siteConfig } from "@/lib/site";
+﻿import { siteConfig } from "@/lib/site";
 
 export const assistantContext = {
   pt: `
 Perfil:
-- Nome: José Manoel Pereira.
+- Nome: JosÃ© Manoel Pereira.
 - Cargo principal: Desenvolvedor Full Stack / Engenheiro de Software.
-- Localização: Santarém, PA - Brasil.
+- LocalizaÃ§Ã£o: SantarÃ©m, PA - Brasil.
 
 Contato:
 - WhatsApp: ${siteConfig.whatsapp}
@@ -13,40 +13,41 @@ Contato:
 - GitHub: ${siteConfig.github}
 - Instagram: ${siteConfig.instagram}
 
-Experiência (ordem cronológica descendente):
-1) ArenaCalendar (SaaS próprio) - Engenheiro de Software & Líder Técnico - Jan 2026 até o momento.
-   Responsabilidades: liderança end-to-end do produto, arquitetura SaaS multi-tenant, DevOps em VPS Linux, automação de deploy via Git, monitoramento de servidores, isolamento de dados com PostgreSQL RLS.
-2) MAVIK (Agência de Software) - Desenvolvedor Full Stack & Consultor de Soluções - Nov 2025 até o momento.
-   Responsabilidades: soluções web para múltiplos clientes, foco em Core Web Vitals, SEO técnico, definição de stack Next.js + TypeScript, padrões para escalabilidade.
-3) Silva & Souza Tecnologia - Desenvolvedor Full Stack (Projeto de Modernização) - Out 2025 a Nov 2025.
-   Responsabilidades: migração de Blade para SPA com Vue.js + Inertia + TypeScript, branch switcher, reestruturação de acesso com middleware, privatização de rotas e segurança Laravel, MySQL centralizado.
+ExperiÃªncia (ordem cronolÃ³gica descendente):
+1) ArenaCalendar (SaaS prÃ³prio) - Engenheiro de Software & LÃ­der TÃ©cnico - Jan 2026 atÃ© o momento.
+   Responsabilidades: lideranÃ§a end-to-end do produto, arquitetura SaaS multi-tenant, DevOps em VPS Linux, automaÃ§Ã£o de deploy via Git, monitoramento de servidores, isolamento de dados com PostgreSQL RLS.
+2) MAVIK (AgÃªncia de Software) - Desenvolvedor Full Stack & Consultor de SoluÃ§Ãµes - Nov 2025 atÃ© o momento.
+   Responsabilidades: soluÃ§Ãµes web para mÃºltiplos clientes, foco em Core Web Vitals, SEO tÃ©cnico, definiÃ§Ã£o de stack Next.js + TypeScript, padrÃµes para escalabilidade.
+3) Silva & Souza Tecnologia - Desenvolvedor Full Stack (Projeto de ModernizaÃ§Ã£o) - Out 2025 a Nov 2025.
+   Responsabilidades: migraÃ§Ã£o de Blade para SPA com Vue.js + Inertia + TypeScript, branch switcher, reestruturaÃ§Ã£o de acesso com middleware, privatizaÃ§Ã£o de rotas e seguranÃ§a Laravel, MySQL centralizado.
 4) Barbearia KLP - Desenvolvedor Full Stack (Contrato PJ) - Mar 2025 a Mai 2025.
-   Responsabilidades: ERP customizado, automação de processos manuais, modelagem de banco, padrão MVC.
-5) VA Imports (E-commerce) - Desenvolvedor Backend (Sustentação) - Ago 2024 a Dez 2024.
-   Responsabilidades: manutenção de infraestrutura produtiva, correções de segurança, otimização SQL, suporte a picos de tráfego.
+   Responsabilidades: ERP customizado, automaÃ§Ã£o de processos manuais, modelagem de banco, padrÃ£o MVC.
+5) VA Imports (E-commerce) - Desenvolvedor Backend (SustentaÃ§Ã£o) - Ago 2024 a Dez 2024.
+   Responsabilidades: manutenÃ§Ã£o de infraestrutura produtiva, correÃ§Ãµes de seguranÃ§a, otimizaÃ§Ã£o SQL, suporte a picos de trÃ¡fego.
 
-Competências técnicas:
-- Backend e linguagens: PHP 8+ (Laravel), JavaScript (Node.js), TypeScript, Java, Python (automação/IA).
+CompetÃªncias tÃ©cnicas:
+- Backend e linguagens: PHP 8+ (Laravel), JavaScript (Node.js), TypeScript, Java, Python (automaÃ§Ã£o/IA).
 - Frontend: Vue.js (Inertia, Composition API), React/Next.js, Tailwind CSS.
-- DevOps e infraestrutura: Docker, CI/CD com GitHub Actions, Linux (Ubuntu/Debian), Nginx/Apache, gestão de VPS.
-- Banco de dados: PostgreSQL (otimização e RLS), MySQL, modelagem relacional.
+- Inclui experiência no desenvolvimento de aplicações mobile para Android e iOS, utilizando stacks modernas quando necessário, integrando APIs e backends próprios.
+- DevOps e infraestrutura: Docker, CI/CD com GitHub Actions, Linux (Ubuntu/Debian), Nginx/Apache, gestÃ£o de VPS.
+- Banco de dados: PostgreSQL (otimizaÃ§Ã£o e RLS), MySQL, modelagem relacional.
 
-Formação:
-- Análise e Desenvolvimento de Sistemas - UNAMA - Conclusão 2025.
-- Técnico em Desenvolvimento de Sistemas - IFPA - Conclusão 2023.
+FormaÃ§Ã£o:
+- AnÃ¡lise e Desenvolvimento de Sistemas - UNAMA - ConclusÃ£o 2025.
+- TÃ©cnico em Desenvolvimento de Sistemas - IFPA - ConclusÃ£o 2023.
 
-Certificações e comunidade:
-- Maratona SBC de Programação - Fase Zero.
-- Java Foundations Certified Junior Associate (Preparatório) - Oracle Academy.
+CertificaÃ§Ãµes e comunidade:
+- Maratona SBC de ProgramaÃ§Ã£o - Fase Zero.
+- Java Foundations Certified Junior Associate (PreparatÃ³rio) - Oracle Academy.
 - Desenvolvimento Web Moderno com PHP - Udemy.
 - Microservices Architecture with Golang - Workshop UNAMA.
-- AI & Machine Learning Concepts - Workshop Técnico.
+- AI & Machine Learning Concepts - Workshop TÃ©cnico.
 `.trim(),
   en: `
 Profile:
-- Name: José Manoel Pereira.
+- Name: JosÃ© Manoel Pereira.
 - Main role: Full Stack Developer / Software Engineer.
-- Location: Santarém, PA - Brazil.
+- Location: SantarÃ©m, PA - Brazil.
 
 Contact:
 - WhatsApp: ${siteConfig.whatsapp}
@@ -69,6 +70,7 @@ Experience (descending chronological order):
 Technical skills:
 - Backend and languages: PHP 8+ (Laravel), JavaScript (Node.js), TypeScript, Java, Python (automation/AI).
 - Frontend: Vue.js (Inertia, Composition API), React/Next.js, Tailwind CSS.
+- He also develops mobile applications for Android and iOS when required, integrating them with custom APIs and backend systems.
 - DevOps and infrastructure: Docker, CI/CD with GitHub Actions, Linux (Ubuntu/Debian), Nginx/Apache, VPS management.
 - Databases: PostgreSQL (optimization and RLS), MySQL, relational modeling.
 
@@ -84,3 +86,5 @@ Certifications and community:
 - AI & Machine Learning Concepts - Technical workshop.
 `.trim(),
 } as const;
+
+

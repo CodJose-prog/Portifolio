@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { assistantContext } from "@/content/assistantContext";
 
@@ -65,28 +65,29 @@ function isRateLimited(ip: string): boolean {
 
 function getRateLimitMessage(lang: "pt" | "en"): string {
   return lang === "pt"
-    ? "Muitas solicitações no momento. Aguarde alguns minutos e tente novamente."
+    ? "Muitas solicitaÃ§Ãµes no momento. Aguarde alguns minutos e tente novamente."
     : "Too many requests right now. Please wait a few minutes and try again.";
 }
 
 function getFallbackMessage(lang: "pt" | "en"): string {
   return lang === "pt"
-    ? "Estou com instabilidade no momento. Você pode falar com ele diretamente no WhatsApp ou LinkedIn."
+    ? "Estou com instabilidade no momento. VocÃª pode falar com ele diretamente no WhatsApp ou LinkedIn."
     : "I am temporarily unavailable. You can contact him directly on WhatsApp or LinkedIn.";
 }
 
 function buildSystemPrompt(lang: "pt" | "en"): string {
   if (lang === "pt") {
     return `
-Você é a Secretária Virtual do portfólio de José Manoel Pereira.
-Responda SOMENTE em português (pt-BR), com linguagem objetiva, educada e profissional.
+VocÃª Ã© a SecretÃ¡ria Virtual do portfÃ³lio de JosÃ© Manoel Pereira.
+Responda SOMENTE em portuguÃªs (pt-BR), com linguagem objetiva, educada e profissional.
 Use APENAS o CONTEXTO abaixo como fonte de verdade.
-Não invente fatos, números, clientes, datas, métricas ou experiências.
-Se a pergunta não estiver no contexto, diga: "Não tenho essa informação aqui." e sugira contato via WhatsApp ou LinkedIn.
-Se pedirem contratação/preço/negociação, responda de forma neutra e direcione para WhatsApp/LinkedIn.
-Se o usuário enviar ou pedir dados sensíveis (senhas, documentos, cartões, dados bancários), recuse e oriente a não compartilhar esse tipo de dado.
-Não faça integrações externas e não prometa ações.
-Saída em texto simples, com 2 a 8 linhas.
+NÃ£o invente fatos, nÃºmeros, clientes, datas, mÃ©tricas ou experiÃªncias.
+Se a pergunta nÃ£o estiver no contexto, diga: "NÃ£o tenho essa informaÃ§Ã£o aqui." e sugira contato via WhatsApp ou LinkedIn.
+Se pedirem contrataÃ§Ã£o/preÃ§o/negociaÃ§Ã£o, responda de forma neutra e direcione para WhatsApp/LinkedIn.
+Se o usuÃ¡rio enviar ou pedir dados sensÃ­veis (senhas, documentos, cartÃµes, dados bancÃ¡rios), recuse e oriente a nÃ£o compartilhar esse tipo de dado.
+NÃ£o faÃ§a integraÃ§Ãµes externas e nÃ£o prometa aÃ§Ãµes.
+Responda com base no contexto fornecido. Caso a pergunta seja sobre desenvolvimento mobile, informe que JosÃ© Manoel desenvolve aplicaÃ§Ãµes Android e iOS integradas a APIs e sistemas backend.
+SaÃ­da em texto simples, com 2 a 8 linhas.
 
 CONTEXTO:
 ${assistantContext.pt}
@@ -94,7 +95,7 @@ ${assistantContext.pt}
   }
 
   return `
-You are the Virtual Assistant for José Manoel Pereira's portfolio.
+You are the Virtual Assistant for JosÃ© Manoel Pereira's portfolio.
 Reply ONLY in English, with an objective, polite, and professional tone.
 Use ONLY the CONTEXT below as the source of truth.
 Do not invent facts, numbers, clients, dates, metrics, or experiences.
@@ -102,6 +103,7 @@ If the question is not in the context, say: "I do not have that information here
 If asked about hiring/pricing/commercial terms, answer neutrally and direct the visitor to WhatsApp/LinkedIn.
 If the user sends or asks for sensitive data (passwords, documents, card data, banking details), refuse and advise them not to share such information.
 Do not perform external integrations and do not promise actions.
+Answer based on the provided context. If the question is about mobile development, state that JosÃ© Manoel develops Android and iOS applications integrated with APIs and backend systems.
 Return plain text only, with 2 to 8 lines.
 
 CONTEXT:
@@ -122,7 +124,7 @@ export async function POST(request: NextRequest) {
         {
           reply:
             lang === "pt"
-              ? "Não consegui processar a solicitação. Tente reformular sua pergunta."
+              ? "NÃ£o consegui processar a solicitaÃ§Ã£o. Tente reformular sua pergunta."
               : "I could not process this request. Please rephrase your question.",
         },
         { status: 400 },
@@ -209,3 +211,5 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ reply: getFallbackMessage(lang) }, { status: 500 });
   }
 }
+
+
