@@ -58,7 +58,7 @@ const labels: Record<
   }
 > = {
   pt: {
-    open: "Secretária",
+    open: "Tirar Dúvidas",
     title: "Secretária Virtual",
     subtitle: "Tire dúvidas sobre meu trabalho e projetos.",
     clear: "Limpar conversa",
