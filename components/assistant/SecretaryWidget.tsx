@@ -357,7 +357,7 @@ export function SecretaryWidget({ lang }: SecretaryWidgetProps) {
                   type="submit"
                   aria-label={l.send}
                   disabled={loading || input.trim().length === 0}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground transition hover:bg-[var(--primary-hover)] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground transition hover:bg-(--primary-hover) disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   <Send className="size-4" />
                 </button>
