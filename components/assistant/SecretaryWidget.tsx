@@ -70,7 +70,7 @@ const labels: Record<
     apiError: "Não consegui responder agora. Fale com ele no WhatsApp ou LinkedIn.",
   },
   en: {
-    open: "Assistant",
+    open: "Ask Questions",
     title: "Virtual Assistant",
     subtitle: "Ask questions about my work and projects.",
     clear: "Clear chat",
