@@ -71,23 +71,23 @@ function getRateLimitMessage(lang: "pt" | "en"): string {
 
 function getFallbackMessage(lang: "pt" | "en"): string {
   return lang === "pt"
-    ? "Estou com instabilidade no momento. Você pode falar com ele diretamente no WhatsApp ou LinkedIn."
-    : "I am temporarily unavailable. You can contact him directly on WhatsApp or LinkedIn.";
+    ? "Estou com instabilidade no momento. Você pode falar com ele por e-mail, LinkedIn ou WhatsApp."
+    : "I am temporarily unavailable. You can contact him by email, LinkedIn, or WhatsApp.";
 }
 
 function buildSystemPrompt(lang: "pt" | "en"): string {
   if (lang === "pt") {
     return `
-Vocé é a Secretária Virtual do portfólio de José Manoel Pereira.
+Você é a assistente virtual do portfólio de José Manoel Pereira.
 Responda SOMENTE em português (pt-BR), com linguagem objetiva, educada e profissional.
 Use APENAS o CONTEXTO abaixo como fonte de verdade.
 Não invente fatos, números, clientes, datas, métricas ou experiências.
-Se a pergunta não estiver no contexto, diga: "Não tenho essa informação aqui." e sugira contato via WhatsApp ou LinkedIn.
-Se pedirem contratação/preço/negociação, responda de forma neutra e direcione para WhatsApp/LinkedIn.
-Ao sugerir contato, prefira dizer que pode direcionar para WhatsApp ou LinkedIn sem colar URLs cruas no texto.
+Se a pergunta não estiver no contexto, diga: "Não tenho essa informação aqui." e sugira contato por e-mail, LinkedIn ou WhatsApp.
+Se pedirem contratação, preço ou negociação, responda de forma neutra e direcione para e-mail, LinkedIn ou WhatsApp.
+Ao sugerir contato, prefira citar os canais sem colar URLs cruas no texto.
 Se o usuário enviar ou pedir dados sensíveis (senhas, documentos, cartões, dados bancários), recuse e oriente a não compartilhar esse tipo de dado.
 Não faça integrações externas e não prometa ações.
-Responda com base no contexto fornecido. Caso a pergunta seja sobre desenvolvimento mobile, informe que José Manoel desenvolve aplicações Android e iOS integradas a APIs e sistemas backend.
+Responda com base no contexto fornecido.
 Saída em texto simples, com 2 a 8 linhas.
 
 CONTEXTO:
@@ -96,16 +96,16 @@ ${assistantContext.pt}
   }
 
   return `
-You are the Virtual Assistant for JosÃ© Manoel Pereira's portfolio.
+You are the virtual assistant for José Manoel Pereira's portfolio.
 Reply ONLY in English, with an objective, polite, and professional tone.
 Use ONLY the CONTEXT below as the source of truth.
 Do not invent facts, numbers, clients, dates, metrics, or experiences.
-If the question is not in the context, say: "I do not have that information here." and suggest contacting him via WhatsApp or LinkedIn.
-If asked about hiring/pricing/commercial terms, answer neutrally and direct the visitor to WhatsApp/LinkedIn.
-When suggesting contact, prefer saying you can direct the visitor to WhatsApp or LinkedIn without pasting raw URLs in the text.
+If the question is not in the context, say: "I do not have that information here." and suggest contacting him by email, LinkedIn, or WhatsApp.
+If asked about hiring, pricing, or commercial terms, answer neutrally and direct the visitor to email, LinkedIn, or WhatsApp.
+When suggesting contact, prefer naming the channels without pasting raw URLs in the text.
 If the user sends or asks for sensitive data (passwords, documents, card data, banking details), refuse and advise them not to share such information.
 Do not perform external integrations and do not promise actions.
-Answer based on the provided context. If the question is about mobile development, state that JosÃ© Manoel develops Android and iOS applications integrated with APIs and backend systems.
+Answer based on the provided context.
 Return plain text only, with 2 to 8 lines.
 
 CONTEXT:
@@ -126,7 +126,7 @@ export async function POST(request: NextRequest) {
         {
           reply:
             lang === "pt"
-              ? "NÃ£o consegui processar a solicitaÃ§Ã£o. Tente reformular sua pergunta."
+              ? "Não consegui processar a solicitação. Tente reformular sua pergunta."
               : "I could not process this request. Please rephrase your question.",
         },
         { status: 400 },
@@ -213,4 +213,3 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ reply: getFallbackMessage(lang) }, { status: 500 });
   }
 }
-

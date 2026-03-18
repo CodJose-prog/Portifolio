@@ -4,9 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ExternalLink,
   Github,
-  Instagram,
   Linkedin,
   Loader2,
+  Mail,
   MessageCircle,
   Send,
   Trash2,
@@ -29,16 +29,16 @@ type ChatMessage = {
 
 const quickPrompts: Record<Lang, string[]> = {
   pt: [
-    "O que você faz?",
-    "Quais tecnologias você domina?",
+    "Qual é seu foco hoje?",
+    "Quais stacks você domina?",
     "Fale do ArenaCalendar",
-    "Como você trabalha?",
+    "Que tipo de projeto você resolve?",
   ],
   en: [
-    "What do you do?",
-    "What technologies do you use?",
+    "What is your current focus?",
+    "What stacks do you work with?",
     "Tell me about ArenaCalendar",
-    "How do you work?",
+    "What kind of problems do you solve?",
   ],
 };
 
@@ -58,28 +58,28 @@ const labels: Record<
   }
 > = {
   pt: {
-    open: "Tirar Dúvidas",
-    title: "Secretária Virtual",
-    subtitle: "Tire dúvidas sobre meu trabalho e projetos.",
+    open: "Assistente",
+    title: "Assistente virtual",
+    subtitle: "Tire dúvidas sobre experiência, stack e cases.",
     clear: "Limpar conversa",
     close: "Fechar conversa",
     placeholder: "Digite sua dúvida...",
     send: "Enviar mensagem",
     loading: "Respondendo...",
     sensitiveHint: "Não compartilhe senhas, documentos ou dados sensíveis.",
-    apiError: "Não consegui responder agora. Fale com ele no WhatsApp ou LinkedIn.",
+    apiError: "Não consegui responder agora. Fale com ele por e-mail, LinkedIn ou WhatsApp.",
   },
   en: {
-    open: "Ask Questions",
-    title: "Virtual Assistant",
-    subtitle: "Ask questions about my work and projects.",
+    open: "Assistant",
+    title: "Virtual assistant",
+    subtitle: "Ask about experience, stack, and case studies.",
     clear: "Clear chat",
     close: "Close chat",
     placeholder: "Type your question...",
     send: "Send message",
     loading: "Thinking...",
     sensitiveHint: "Do not share passwords, documents, or sensitive data.",
-    apiError: "I could not answer right now. Please contact him on WhatsApp or LinkedIn.",
+    apiError: "I could not answer right now. Please contact him by email, LinkedIn, or WhatsApp.",
   },
 };
 
@@ -138,8 +138,7 @@ export function SecretaryWidget({ lang }: SecretaryWidgetProps) {
       content: content.slice(0, 800),
     };
 
-    const nextMessages = [...messages, userMessage];
-    setMessages(nextMessages);
+    setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setLoading(true);
 
@@ -191,8 +190,8 @@ export function SecretaryWidget({ lang }: SecretaryWidgetProps) {
     if (type === "github") {
       return <Github className="size-3.5" aria-hidden />;
     }
-    if (type === "instagram") {
-      return <Instagram className="size-3.5" aria-hidden />;
+    if (type === "url" && lang === "pt") {
+      return <Mail className="size-3.5" aria-hidden />;
     }
     return <ExternalLink className="size-3.5" aria-hidden />;
   }
@@ -357,7 +356,7 @@ export function SecretaryWidget({ lang }: SecretaryWidgetProps) {
                   type="submit"
                   aria-label={l.send}
                   disabled={loading || input.trim().length === 0}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground transition hover:bg-(--primary-hover) disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground transition hover:bg-[var(--primary-hover)] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   <Send className="size-4" />
                 </button>

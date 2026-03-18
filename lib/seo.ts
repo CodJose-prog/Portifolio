@@ -32,39 +32,39 @@ type BuildPageMetadataInput = {
 const localizedSeo = {
   pt: {
     titleTemplate: "%s | José Manoel Pereira",
-    defaultTitle: "José Manoel Pereira | Desenvolvedor Full Stack e Engenheiro de Software",
+    defaultTitle: "José Manoel Pereira | Backend Engineer",
     description:
-      "Desenvolvedor Full Stack com experiência em liderança técnica, arquitetura SaaS multi-tenant e integração de sistemas complexos.",
+      "Backend Engineer com foco em Laravel, Node.js, APIs escaláveis, SaaS multi-tenant, PostgreSQL, Docker e CI/CD.",
     keywords: [
-      "Desenvolvedor Full Stack",
-      "Engenheiro de Software",
+      "Backend Engineer",
       "Laravel",
-      "Vue.js",
-      "Next.js",
       "Node.js",
-      "TypeScript",
+      "APIs REST",
       "PostgreSQL",
-      "MySQL",
+      "SaaS multi-tenant",
       "Docker",
+      "CI/CD",
+      "Arquitetura backend",
+      "Integrações externas",
     ],
     ogLocale: "pt_BR",
   },
   en: {
     titleTemplate: "%s | José Manoel Pereira",
-    defaultTitle: "José Manoel Pereira | Full Stack Developer and Software Engineer",
+    defaultTitle: "José Manoel Pereira | Backend Engineer",
     description:
-      "Full Stack Developer with experience in technical leadership, multi-tenant SaaS architecture, and complex systems integration.",
+      "Backend Engineer focused on Laravel, Node.js, scalable APIs, multi-tenant SaaS, PostgreSQL, Docker, and CI/CD.",
     keywords: [
-      "Full Stack Developer",
-      "Software Engineer",
+      "Backend Engineer",
       "Laravel",
-      "Vue.js",
-      "Next.js",
       "Node.js",
-      "TypeScript",
+      "REST APIs",
       "PostgreSQL",
-      "MySQL",
+      "Multi-tenant SaaS",
       "Docker",
+      "CI/CD",
+      "Backend architecture",
+      "External integrations",
     ],
     ogLocale: "en_US",
   },
@@ -74,13 +74,13 @@ const personId = `${siteConfig.url}#person`;
 const websiteId = `${siteConfig.url}#website`;
 
 const personDescriptions: Record<Lang, string> = {
-  pt: "Desenvolvedor Full Stack com experiência em liderança técnica de projetos e empreendedorismo de software. Especialista na arquitetura de soluções SaaS multi-tenant escaláveis utilizando o ecossistema PHP (Laravel) e JavaScript (Vue.js). Focado em boas práticas de engenharia de software, documentação técnica, Design Patterns e integração de sistemas complexos. Ativo em comunidades de tecnologia.",
-  en: "Full Stack Developer with experience in technical leadership and software entrepreneurship. Specialized in architecting scalable multi-tenant SaaS solutions using the PHP ecosystem (Laravel) and JavaScript (Vue.js). Focused on software engineering best practices, technical documentation, design patterns, and complex system integration. Active in technology communities.",
+  pt: "Engenheiro de software com foco em backend, APIs, arquitetura de sistemas, PostgreSQL, Docker e CI/CD. Atua com Laravel, Node.js, SaaS multi-tenant e integração de serviços em produtos reais.",
+  en: "Software engineer focused on backend, APIs, systems architecture, PostgreSQL, Docker, and CI/CD. Works with Laravel, Node.js, multi-tenant SaaS, and service integrations in real products.",
 };
 
 const websiteDescriptions: Record<Lang, string> = {
-  pt: "Portfólio técnico de José Manoel Pereira com foco em desenvolvimento full stack, arquitetura de software e entrega em produção.",
-  en: "Technical portfolio of José Manoel Pereira focused on full stack development, software architecture, and production delivery.",
+  pt: "Portfólio de backend engineering de José Manoel Pereira com experiência em APIs, SaaS multi-tenant, PostgreSQL e operação em produção.",
+  en: "Backend engineering portfolio of José Manoel Pereira with experience in APIs, multi-tenant SaaS, PostgreSQL, and production operations.",
 };
 
 const faqEntries: Record<
@@ -92,56 +92,46 @@ const faqEntries: Record<
 > = {
   pt: [
     {
-      question: "O que você faz hoje?",
+      question: "No que você é mais forte hoje?",
       answer:
-        "Atuo como Desenvolvedor Full Stack e Engenheiro de Software em produtos web. Projeto arquitetura, construo frontend e backend, e entrego em produção com foco em clareza técnica.",
+        "Minha base principal hoje está em backend com Laravel, Node.js, APIs REST, PostgreSQL, arquitetura multi-tenant, Docker e CI/CD.",
     },
     {
-      question: "Qual é sua stack principal?",
+      question: "Que tipo de problema você costuma resolver?",
       answer:
-        "Trabalho com PHP/Laravel, JavaScript (Node.js), TypeScript, Java, Python, Vue.js, React/Next.js, Tailwind CSS, PostgreSQL, MySQL, Docker, Linux e CI/CD com GitHub Actions.",
+        "Atuo em APIs, integrações, evolução de sistemas em produção, automações operacionais, modelagem de dados e estruturação de backend para novos produtos SaaS.",
     },
     {
-      question: "Você atende remoto?",
+      question: "Você já trabalhou com multi-tenant em produção?",
       answer:
-        "Sim. Atendo remoto para empresas no Brasil e no exterior, incluindo times dos Estados Unidos. A colaboração é objetiva, com comunicação direta e entregas iterativas.",
+        "Sim. No ArenaCalendar, estruturei isolamento de dados com PostgreSQL RLS e backend orientado a múltiplos tenants ativos.",
     },
     {
-      question: "Quais projetos você costuma assumir?",
+      question: "Você também cuida da entrega e infraestrutura?",
       answer:
-        "Assumo web apps, sistemas internos, APIs, integrações e automações de processo. Também atuo em modernização de sistemas legados.",
-    },
-    {
-      question: "Você trabalha com LLM e Prompt Engineering?",
-      answer:
-        "Sim, quando há necessidade real de produto. Estruturo prompts, validação de saída e integração de APIs para manter previsibilidade e segurança operacional.",
+        "Sim. Trabalho com Docker, Linux, Nginx e CI/CD via GitHub Actions para tornar o deploy parte natural do ciclo de engenharia.",
     },
   ],
   en: [
     {
-      question: "What do you do?",
+      question: "What are you strongest at right now?",
       answer:
-        "I work as a Full Stack Developer and Software Engineer building web products. I handle architecture, frontend, backend, and production delivery with a strong focus on technical clarity.",
+        "My main strength today is backend engineering with Laravel, Node.js, REST APIs, PostgreSQL, multi-tenant architecture, Docker, and CI/CD.",
     },
     {
-      question: "What is your main stack?",
+      question: "What kind of problems do you usually solve?",
       answer:
-        "I work with PHP/Laravel, JavaScript (Node.js), TypeScript, Java, Python, Vue.js, React/Next.js, Tailwind CSS, PostgreSQL, MySQL, Docker, Linux, and CI/CD with GitHub Actions.",
+        "I work on APIs, integrations, production system evolution, operational automations, data modeling, and backend structure for new SaaS products.",
     },
     {
-      question: "Do you work remotely?",
+      question: "Have you worked with multi-tenant in production?",
       answer:
-        "Yes. I work remotely with companies in Brazil and internationally, including US teams. Collaboration is direct, async-friendly, and delivery-oriented.",
+        "Yes. In ArenaCalendar, I structured data isolation with PostgreSQL RLS and a backend designed for multiple active tenants.",
     },
     {
-      question: "What kinds of projects do you take?",
+      question: "Do you also handle delivery and infrastructure?",
       answer:
-        "I take on web apps, internal systems, APIs, integrations, and process automation. I also work on legacy modernization projects.",
-    },
-    {
-      question: "Do you work with LLM and Prompt Engineering?",
-      answer:
-        "Yes, when it solves a real product need. I design prompts, output validation, and API orchestration to keep behavior predictable in production.",
+        "Yes. I work with Docker, Linux, Nginx, and CI/CD through GitHub Actions so deployment becomes part of the engineering cycle.",
     },
   ],
 };
@@ -217,6 +207,7 @@ function createPersonSchema(lang: Lang): JsonLdNode {
     url: canonicalFor(lang, ""),
     image: `${siteConfig.url}/jose-hero.svg`,
     telephone: siteConfig.phone,
+    email: siteConfig.email,
     sameAs: [siteConfig.linkedin, siteConfig.github],
     address: {
       "@type": "PostalAddress",
@@ -229,43 +220,34 @@ function createPersonSchema(lang: Lang): JsonLdNode {
       name: company,
     })),
     knowsAbout: [
-      "Full Stack Development",
-      "Software Engineering",
+      "Backend Engineering",
       "Laravel",
-      "Vue.js",
-      "React",
-      "Next.js",
       "Node.js",
-      "TypeScript",
-      "Java",
-      "Python",
+      "REST APIs",
       "PostgreSQL",
       "MySQL",
       "Docker",
       "CI/CD",
       "Linux",
       "Nginx",
-      "Apache",
-      "SaaS Multi-tenant Architecture",
+      "Multi-tenant SaaS",
       "PostgreSQL RLS",
+      "External API integration",
+      "System design",
     ],
     skills: [
-      "PHP 8+ (Laravel ecosystem)",
-      "JavaScript (Node.js)",
-      "TypeScript",
-      "Java",
-      "Python",
-      "Vue.js (Inertia.js, Composition API)",
-      "React.js (Next.js)",
-      "Tailwind CSS",
+      "Laravel and PHP backend development",
+      "Node.js and TypeScript services",
+      "REST API design",
+      "Multi-tenant architecture",
+      "PostgreSQL optimization and RLS",
+      "MySQL and relational modeling",
       "Docker",
-      "CI/CD (GitHub Actions)",
-      "Linux (Ubuntu / Debian)",
-      "Nginx / Apache",
-      "VPS management",
-      "PostgreSQL (optimization and RLS)",
-      "MySQL",
-      "Relational modeling",
+      "GitHub Actions",
+      "Linux VPS management",
+      "Nginx",
+      "External API integrations",
+      "AI automation workflows",
     ],
     alumniOf: education.map((item) => ({
       "@type": "EducationalOrganization",
@@ -285,28 +267,10 @@ function createPersonSchema(lang: Lang): JsonLdNode {
         name: "English",
       },
     ],
-    availableLanguage: [
-      {
-        "@type": "Language",
-        name: "Portuguese",
-      },
-      {
-        "@type": "Language",
-        name: "English",
-      },
-    ],
-    nationality: {
-      "@type": "Country",
-      name: "Brazil",
-    },
     areaServed: [
       {
         "@type": "Country",
         name: "Brazil",
-      },
-      {
-        "@type": "Country",
-        name: "United States",
       },
       {
         "@type": "Place",
@@ -371,20 +335,8 @@ function inferProgrammingLanguages(technologies: string[]): string[] {
     const normalized = tech.toLowerCase();
 
     if (normalized.includes("laravel") || normalized.includes("php")) set.add("PHP");
+    if (normalized.includes("node")) set.add("JavaScript");
     if (normalized.includes("typescript")) set.add("TypeScript");
-
-    if (
-      normalized.includes("vue") ||
-      normalized.includes("react") ||
-      normalized.includes("next.js") ||
-      normalized.includes("nextjs") ||
-      normalized.includes("inertia")
-    ) {
-      set.add("JavaScript");
-    }
-
-    if (normalized.includes("python")) set.add("Python");
-    if (normalized.includes("java")) set.add("Java");
     if (normalized.includes("sql") || normalized.includes("postgres") || normalized.includes("mysql")) {
       set.add("SQL");
     }
@@ -395,7 +347,6 @@ function inferProgrammingLanguages(technologies: string[]): string[] {
 
 function inferRuntimePlatforms(technologies: string[]): string[] {
   const set = new Set<string>();
-  set.add("Web Browser");
 
   technologies.forEach((tech) => {
     const normalized = tech.toLowerCase();
@@ -404,13 +355,19 @@ function inferRuntimePlatforms(technologies: string[]): string[] {
     if (normalized.includes("php") || normalized.includes("laravel")) set.add("PHP");
     if (normalized.includes("linux")) set.add("Linux VPS");
     if (normalized.includes("docker")) set.add("Docker");
+    if (normalized.includes("mobile")) set.add("Android / iOS");
+    if (normalized.includes("web")) set.add("Web Browser");
   });
+
+  if (set.size === 0) {
+    set.add("Web Browser");
+  }
 
   return Array.from(set);
 }
 
 function createProjectSchema(lang: Lang, project: ProjectCaseStudy): JsonLdNode {
-  const technologies = project.technologies_used[lang];
+  const technologies = project.technologiesUsed[lang];
   const result: JsonLdNode = {
     "@context": "https://schema.org",
     "@type": ["SoftwareSourceCode", "SoftwareApplication"],
@@ -421,18 +378,18 @@ function createProjectSchema(lang: Lang, project: ProjectCaseStudy): JsonLdNode 
     },
     programmingLanguage: inferProgrammingLanguages(technologies),
     runtimePlatform: inferRuntimePlatforms(technologies),
-    keywords: project.seo_keywords[lang].join(", "),
+    keywords: project.seoKeywords[lang].join(", "),
     applicationCategory: "BusinessApplication",
     operatingSystem: "Windows, macOS, Linux, Android, iOS",
     about: project.problem[lang],
     audience: [
       {
         "@type": "Audience",
-        audienceType: "Developers",
+        audienceType: "Businesses",
       },
       {
         "@type": "Audience",
-        audienceType: "Businesses",
+        audienceType: "Engineering teams",
       },
     ],
     url: canonicalFor(lang, `/projects/${project.slug}`),
@@ -448,6 +405,10 @@ function createProjectSchema(lang: Lang, project: ProjectCaseStudy): JsonLdNode 
 
   if (project.codeRepository) {
     result.codeRepository = project.codeRepository;
+  }
+
+  if (project.liveUrl) {
+    result.sameAs = [project.liveUrl];
   }
 
   return result;

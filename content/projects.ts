@@ -1,4 +1,4 @@
-﻿export type Locale = "pt" | "en";
+export type Locale = "pt" | "en";
 export type LocalizedString = Record<Locale, string>;
 export type LocalizedStringArray = Record<Locale, string[]>;
 
@@ -9,19 +9,22 @@ export type ProjectCaseStudy = {
   dateCreated?: string;
   dateModified?: string;
   codeRepository?: string;
+  company: LocalizedString;
   name: LocalizedString;
+  kicker: LocalizedString;
   overview: LocalizedString;
   problem: LocalizedString;
   solution: LocalizedString;
   architecture: LocalizedString;
+  impact: LocalizedStringArray;
   security: LocalizedString;
   performance: LocalizedString;
   devops: LocalizedString;
   responsibilities: LocalizedStringArray;
-  technical_highlights: LocalizedStringArray;
-  technologies_used: LocalizedStringArray;
-  seo_keywords: LocalizedStringArray;
-  geo_summary: LocalizedString;
+  technicalHighlights: LocalizedStringArray;
+  technologiesUsed: LocalizedStringArray;
+  seoKeywords: LocalizedStringArray;
+  geoSummary: LocalizedString;
 };
 
 export const projectCaseStudies: ProjectCaseStudy[] = [
@@ -29,339 +32,428 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     slug: "arena-calendar",
     image: "/projects/arenacalendar.png",
     liveUrl: "https://arena-calendar.com",
+    company: {
+      pt: "ArenaCalendar",
+      en: "ArenaCalendar",
+    },
     name: {
       pt: "ArenaCalendar",
       en: "ArenaCalendar",
     },
+    kicker: {
+      pt: "SaaS multi-tenant para operação de reservas",
+      en: "Multi-tenant SaaS for booking operations",
+    },
     overview: {
-      pt: "Plataforma de agendamento e operação para negócios baseados em horários, com foco em controle administrativo e experiência do usuário final.",
-      en: "Scheduling and operations platform for time-based businesses, focused on administrative control and end-user experience.",
+      pt: "Produto próprio com backend orientado a APIs, autenticação, reservas e gestão administrativa para negócios com operação baseada em agenda.",
+      en: "Own product with an API-driven backend for authentication, bookings, and administrative management for schedule-based businesses.",
     },
     problem: {
-      pt: "O fluxo de reservas e confirmações era fragmentado entre canais, o que dificultava consistência operacional e rastreabilidade das ações.",
-      en: "Reservation and confirmation flows were fragmented across channels, which made operational consistency and action traceability difficult.",
+      pt: "Era necessário estruturar um backend capaz de sustentar múltiplos tenants, proteger dados por contexto, lidar com horários concorrentes e manter fluidez operacional em picos de demanda.",
+      en: "It was necessary to structure a backend able to support multiple tenants, protect data by context, handle concurrent time slots, and preserve operational fluidity during traffic peaks.",
     },
     solution: {
-      pt: "Desenvolvimento de um fluxo centralizado com regras claras de agenda, estados de reserva e integração de notificações para reduzir inconsistências.",
-      en: "Development of a centralized flow with clear scheduling rules, booking states, and notification integration to reduce inconsistencies.",
+      pt: "Desenvolvi APIs REST em Laravel, arquitetura multi-tenant com PostgreSQL RLS, modelagem orientada a reservas e uma base preparada para evolução contínua do produto.",
+      en: "I built REST APIs in Laravel, a multi-tenant architecture with PostgreSQL RLS, booking-oriented data modeling, and a foundation prepared for continuous product evolution.",
     },
     architecture: {
-      pt: "Arquitetura full stack em Laravel e Vue com separação entre domínio de agenda, camada de aplicação e interfaces operacionais.",
-      en: "Full stack architecture with Laravel and Vue, separating scheduling domain rules, application services, and operational interfaces.",
+      pt: "O backend foi organizado em torno de autenticação, contexto de tenant, regras de reservas, gestão de usuários e separação clara de responsabilidades para suportar escala e manutenção sustentável.",
+      en: "The backend was organized around authentication, tenant context, booking rules, user management, and clear separation of concerns to support scale and sustainable maintenance.",
+    },
+    impact: {
+      pt: [
+        "13 tenants ativos em operação real.",
+        "Isolamento de dados em 100% das operações multi-tenant com PostgreSQL RLS.",
+        "Deploy reduzido de até 5 minutos para cerca de 40-90 segundos com CI/CD.",
+        "Backend preparado para picos de 10 a 15 reservas por tenant em períodos críticos.",
+      ],
+      en: [
+        "13 active tenants in real operation.",
+        "100% data isolation across multi-tenant operations with PostgreSQL RLS.",
+        "Deployment reduced from up to 5 minutes to roughly 40-90 seconds with CI/CD.",
+        "Backend prepared for peaks of 10 to 15 bookings per tenant during critical periods.",
+      ],
     },
     security: {
-      pt: "Controle de acesso por papéis, validação de entradas no backend e aplicação de boas práticas para proteger dados operacionais.",
-      en: "Role-based access control, backend input validation, and best practices to protect operational data.",
+      pt: "Isolamento por tenant com RLS, autenticação, controle de acesso e validação de operações críticas no backend.",
+      en: "Tenant isolation with RLS, authentication, access control, and backend validation for critical operations.",
     },
     performance: {
-      pt: "Otimização de consultas de agenda, tratamento de concorrência em horários e renderização eficiente para cargas variáveis.",
-      en: "Optimized scheduling queries, concurrency handling for time slots, and efficient rendering for variable loads.",
+      pt: "Otimização de consultas SQL, atenção à modelagem de dados e tratamento de fluxos críticos para reduzir latência em endpoints centrais.",
+      en: "SQL query optimization, careful data modeling, and critical flow handling to reduce latency on core endpoints.",
     },
     devops: {
-      pt: "Pipeline de deploy com GitHub Actions, configuração em Linux VPS e operação de ambiente via Nginx, Docker e SSH.",
-      en: "Deployment pipeline with GitHub Actions, Linux VPS setup, and environment operations via Nginx, Docker, and SSH.",
+      pt: "Deploy automatizado em VPS Linux com GitHub Actions, Docker, Nginx e rotina de publicação controlada para evolução rápida do produto.",
+      en: "Automated deployment on a Linux VPS with GitHub Actions, Docker, Nginx, and a controlled release workflow for fast product evolution.",
     },
     responsibilities: {
       pt: [
-        "Definição de arquitetura do sistema e modelagem de domínio de agenda",
-        "Implementação backend em Laravel com APIs e regras de negócio",
-        "Construção do frontend em Vue.js com foco em UX operacional",
-        "Planejamento de deploy e observabilidade de ambiente",
+        "Defini arquitetura backend e decisões técnicas de evolução do produto.",
+        "Implementei APIs REST para autenticação, usuários, reservas e gestão operacional.",
+        "Modelei estratégia multi-tenant com PostgreSQL RLS e separação de contexto.",
+        "Automatizei deploy e rotinas operacionais com foco em confiabilidade e velocidade.",
       ],
       en: [
-        "Defined system architecture and scheduling domain model",
-        "Implemented Laravel backend APIs and business rules",
-        "Built Vue.js frontend with operational UX focus",
-        "Planned deployment and environment observability",
+        "Defined the backend architecture and technical evolution of the product.",
+        "Implemented REST APIs for authentication, users, bookings, and operational management.",
+        "Modeled the multi-tenant strategy with PostgreSQL RLS and context separation.",
+        "Automated deployment and operational routines with focus on reliability and speed.",
       ],
     },
-    technical_highlights: {
+    technicalHighlights: {
       pt: [
-        "Modelagem de disponibilidade com prevenção de conflitos",
-        "Estruturacao de estados de reserva para operação previsível",
-        "Separação clara entre regras de negócio e camada de apresentação",
+        "APIs REST para fluxos críticos de negócio",
+        "PostgreSQL RLS para isolamento multi-tenant",
+        "Modelagem de reservas com prevenção de conflitos",
+        "CI/CD e Docker como parte do ciclo de engenharia",
       ],
       en: [
-        "Availability modeling with conflict prevention",
-        "Booking state architecture for predictable operations",
-        "Clear separation between business rules and presentation layer",
+        "REST APIs for critical business flows",
+        "PostgreSQL RLS for multi-tenant isolation",
+        "Booking modeling with conflict prevention",
+        "CI/CD and Docker as part of the engineering cycle",
       ],
     },
-    technologies_used: {
-      pt: ["Laravel", "PHP", "Vue.js", "Inertia.js", "PostgreSQL", "Redis", "Docker", "Nginx"],
-      en: ["Laravel", "PHP", "Vue.js", "Inertia.js", "PostgreSQL", "Redis", "Docker", "Nginx"],
+    technologiesUsed: {
+      pt: ["Laravel", "PHP", "PostgreSQL", "Docker", "GitHub Actions", "Linux", "Nginx"],
+      en: ["Laravel", "PHP", "PostgreSQL", "Docker", "GitHub Actions", "Linux", "Nginx"],
     },
-    seo_keywords: {
+    seoKeywords: {
       pt: [
-        "Desenvolvedor Full Stack",
-        "Desenvolvedor SaaS",
-        "Desenvolvedor Laravel e Vue",
-        "Engenheiro de Software Brasil",
+        "Backend Engineer Laravel",
+        "SaaS multi-tenant",
+        "PostgreSQL RLS",
+        "APIs escaláveis",
       ],
       en: [
-        "Full Stack Developer",
-        "SaaS Engineer",
-        "Laravel Vue Developer",
-        "Software Engineer Brazil",
+        "Laravel Backend Engineer",
+        "Multi-tenant SaaS",
+        "PostgreSQL RLS",
+        "Scalable APIs",
       ],
     },
-    geo_summary: {
-      pt: "José Manoel atuou como arquiteto e desenvolvedor full stack deste projeto. O problema resolvido foi a desorganização de fluxos de agendamento e confirmação em canais distintos. Foram utilizadas tecnologias como Laravel, Vue.js, PostgreSQL e Docker. A relevância técnica está na modelagem robusta de agenda, no controle de estado das reservas e na base preparada para operação SaaS.",
-      en: "José Manoel led architecture and full stack implementation for this project. The solved problem was fragmented scheduling and confirmation flows across channels. Technologies included Laravel, Vue.js, PostgreSQL, and Docker. The technical relevance comes from robust schedule modeling, booking state control, and a foundation prepared for SaaS operations.",
+    geoSummary: {
+      pt: "José Manoel estruturou o backend do ArenaCalendar com foco em APIs, arquitetura multi-tenant, PostgreSQL RLS e deploy contínuo. O projeto demonstra experiência prática com SaaS real, performance e operação em produção.",
+      en: "José Manoel structured the ArenaCalendar backend around APIs, multi-tenant architecture, PostgreSQL RLS, and continuous delivery. The project demonstrates hands-on experience with real SaaS, performance, and production operations.",
     },
   },
-{
-    slug: "mavik",
-    image: "/projects/mavik.png",
-    liveUrl: "https://mavik.cloud",
-    name: {
+  {
+    slug: "frigorifico-tracking",
+    image: "/projects/frigorifico-tracking.svg",
+    company: {
       pt: "MAVIK",
       en: "MAVIK",
     },
+    name: {
+      pt: "Sistema de Rastreamento para Frigorífico",
+      en: "Tracking System for a Cold-Storage Company",
+    },
+    kicker: {
+      pt: "API REST central para operação web e mobile",
+      en: "Central REST API for web and mobile operations",
+    },
     overview: {
-      pt: "Desenvolvimento de uma Landing Page de alta performance para a MAVIK, em Santarém. O projeto foca na conversão direta, transformando visitantes em leads qualificados e impulsionando a venda de produtos através de uma interface otimizada.",
-      en: "Development of a high-performance Landing Page for MAVIK, based in Santarém. The project focuses on direct conversion, turning visitors into qualified leads and boosting product sales through an optimized interface.",
+      pt: "Case backend construído na MAVIK para centralizar rastreamento operacional com API REST, painel web e aplicativo mobile conectados ao mesmo núcleo de negócio.",
+      en: "Backend case built at MAVIK to centralize operational tracking with a REST API, web dashboard, and mobile app connected to the same business core.",
     },
     problem: {
-      pt: "A empresa precisava de uma presença digital sólida que não apenas apresentasse a marca, mas que fosse capaz de converter o tráfego em vendas reais e capturar dados de potenciais clientes de forma eficiente.",
-      en: "The company needed a solid digital presence that not only presented the brand but was also capable of converting traffic into real sales and capturing potential customer data efficiently.",
+      pt: "A operação precisava sair de fluxos dispersos e manuais para um sistema centralizado que garantisse rastreabilidade, comunicação entre interfaces e previsibilidade operacional.",
+      en: "The operation needed to move away from scattered, manual flows to a centralized system that ensured traceability, communication across interfaces, and operational predictability.",
     },
     solution: {
-      pt: "Criação de uma Landing Page com design persuasivo (copywriting focado em vendas), carregamento ultrarrápido e integração com sistemas de captura de leads e automação de marketing.",
-      en: "Creation of a Landing Page with persuasive design (sales-focused copywriting), ultra-fast loading, and integration with lead capture systems and marketing automation.",
+      pt: "Estruturei uma API REST central com serviços em Node.js e TypeScript, conectando painel web, aplicativo mobile e integrações externas em torno de um fluxo operacional único.",
+      en: "I structured a central REST API with Node.js and TypeScript services, connecting the web dashboard, mobile app, and external integrations around a single operational flow.",
     },
     architecture: {
-      pt: "Desenvolvimento front-end moderno com foco em Web Vitals, garantindo que a página seja responsiva, acessível e otimizada para dispositivos móveis.",
-      en: "Modern front-end development focused on Web Vitals, ensuring the page is responsive, accessible, and mobile-optimized.",
+      pt: "A solução foi pensada como backend centralizador: regras de negócio no núcleo, endpoints bem definidos para múltiplos clientes e desenho preparado para expansão com novas integrações.",
+      en: "The solution was designed as a centralizing backend: business rules in the core, clearly defined endpoints for multiple clients, and an architecture prepared to expand with new integrations.",
+    },
+    impact: {
+      pt: [
+        "Entrega de sistema completo com API REST central, painel web e aplicativo mobile.",
+        "Redução de processos manuais por meio de integrações com APIs externas.",
+        "Padronização arquitetural para facilitar manutenção e evolução dos serviços backend.",
+      ],
+      en: [
+        "Delivered a complete system with a central REST API, web dashboard, and mobile app.",
+        "Reduced manual processes through external API integrations.",
+        "Established architecture standards to improve maintenance and evolution of backend services.",
+      ],
     },
     security: {
-      pt: "Implementação de certificados SSL, proteção contra spam em formulários e conformidade com boas práticas de tratamento de dados de contato.",
-      en: "Implementation of SSL certificates, form spam protection, and compliance with best practices for handling contact data.",
+      pt: "A organização por serviços, contratos de API e separação clara das responsabilidades ajudou a reduzir fragilidade operacional entre interfaces e integrações.",
+      en: "Service organization, API contracts, and clear separation of responsibilities helped reduce operational fragility across interfaces and integrations.",
     },
     performance: {
-      pt: "Otimização de imagens, minificação de scripts e uso de CDN para garantir que a página carregue em menos de 2 segundos, reduzindo a taxa de rejeição.",
-      en: "Image optimization, script minification, and CDN usage to ensure the page loads in under 2 seconds, reducing bounce rate.",
+      pt: "A centralização da lógica no backend melhorou previsibilidade dos fluxos e simplificou a evolução das interfaces conectadas ao sistema.",
+      en: "Centralizing the logic in the backend improved flow predictability and simplified the evolution of interfaces connected to the system.",
     },
     devops: {
-      pt: "Hospedagem otimizada com deploy automatizado via GitHub Actions, garantindo que qualquer atualização na oferta seja publicada instantaneamente.",
-      en: "Optimized hosting with automated deployment via GitHub Actions, ensuring any offer updates are published instantly.",
+      pt: "O case também envolveu padronização de arquitetura e organização de serviços para facilitar entregas e manutenção contínua em ambiente de cliente.",
+      en: "The case also involved architecture standardization and service organization to support delivery and continuous maintenance in a client environment.",
     },
     responsibilities: {
       pt: [
-        "Desenvolvimento full-stack da Landing Page",
-        "Otimização de conversão (CRO) e layout responsivo",
-        "Integração de formulários de captura com CRM/E-mail",
-        "Configuração de ambiente de hospedagem e domínio",
+        "Desenhei a API REST central para suportar diferentes interfaces de consumo.",
+        "Implementei serviços backend e integrações externas em Node.js e TypeScript.",
+        "Apoiei decisões arquiteturais para escalabilidade e manutenção de longo prazo.",
+        "Conectei backend, painel web e app mobile ao mesmo fluxo operacional.",
       ],
       en: [
-        "Full-stack Landing Page development",
-        "Conversion Rate Optimization (CRO) and responsive layout",
-        "Integration of capture forms with CRM/Email",
-        "Hosting environment and domain configuration",
+        "Designed the central REST API to support different consuming interfaces.",
+        "Implemented backend services and external integrations in Node.js and TypeScript.",
+        "Supported architecture decisions for scalability and long-term maintainability.",
+        "Connected backend, web dashboard, and mobile app to the same operational flow.",
       ],
     },
-    technical_highlights: {
+    technicalHighlights: {
       pt: [
-        "Foco total em Core Web Vitals para melhor ranqueamento e experiência",
-        "Arquitetura leve para carregamento instantâneo",
-        "Interface intuitiva focada na jornada de compra do usuário",
+        "Node.js e TypeScript para serviços backend",
+        "API REST como núcleo da operação",
+        "Integrações com APIs externas",
+        "Estrutura preparada para web e mobile",
       ],
       en: [
-        "Full focus on Core Web Vitals for better ranking and experience",
-        "Lightweight architecture for instant loading",
-        "Intuitive interface focused on the user's buying journey",
+        "Node.js and TypeScript for backend services",
+        "REST API as the operational core",
+        "External API integrations",
+        "Structure prepared for web and mobile",
       ],
     },
-    technologies_used: {
-      pt: ["React/Next.js", "Tailwind CSS", "TypeScript", "Node.js", "GitHub Actions", "Hostinger"],
-      en: ["React/Next.js", "Tailwind CSS", "TypeScript", "Node.js", "GitHub Actions", "Hostinger"],
+    technologiesUsed: {
+      pt: ["Node.js", "TypeScript", "REST API", "Integrações externas", "Painel web", "App mobile"],
+      en: ["Node.js", "TypeScript", "REST API", "External integrations", "Web dashboard", "Mobile app"],
     },
-    seo_keywords: {
+    seoKeywords: {
       pt: [
-        "Desenvolvedor Landing Page",
-        "Especialista em Conversão",
-        "Web Developer Santarém",
-        "Criação de Sites de Vendas",
+        "Node.js backend",
+        "TypeScript API",
+        "Integrações externas",
+        "Arquitetura backend",
       ],
       en: [
-        "Landing Page Developer",
-        "Conversion Specialist",
-        "Web Developer Brazil",
-        "Sales Website Creation",
+        "Node.js backend",
+        "TypeScript API",
+        "External integrations",
+        "Backend architecture",
       ],
     },
-    geo_summary: {
-      pt: "José Manoel desenvolveu a Landing Page estratégica para a MAVIK. O objetivo principal foi criar um canal de vendas direto e eficiente, focando em performance e captura de leads. Utilizando tecnologias modernas, o projeto resultou em uma ferramenta robusta para o crescimento comercial da empresa em Santarém.",
-      en: "José Manoel developed the strategic Landing Page for MAVIK. The main goal was to create a direct and efficient sales channel, focusing on performance and lead capture. Using modern technologies, the project resulted in a robust tool for the company's commercial growth in Santarém.",
+    geoSummary: {
+      pt: "Na MAVIK, José Manoel estruturou um backend central em Node.js e TypeScript para um sistema de rastreamento com painel web e aplicativo mobile. O destaque técnico está na API REST como núcleo da operação e nas integrações externas para reduzir trabalho manual.",
+      en: "At MAVIK, José Manoel structured a central backend in Node.js and TypeScript for a tracking system with a web dashboard and mobile app. The technical highlight is the REST API as the operational core and the external integrations used to reduce manual work.",
     },
   },
   {
     slug: "va-imports",
     image: "/projects/vaimports.png",
     liveUrl: "https://vaimport.com.br",
+    company: {
+      pt: "VA Imports",
+      en: "VA Imports",
+    },
     name: {
       pt: "VA Imports",
       en: "VA Imports",
     },
+    kicker: {
+      pt: "Sustentação backend para e-commerce em períodos críticos",
+      en: "Backend support for e-commerce during critical periods",
+    },
     overview: {
-      pt: "Sistema operacional para processos de importação com foco em rastreabilidade, centralização de informações e comunicação entre áreas.",
-      en: "Operational system for import workflows focused on traceability, information centralization, and cross-team communication.",
+      pt: "Atuação em sustentação e evolução do backend de uma operação de e-commerce com foco em estabilidade, segurança e suporte a sazonalidades intensas.",
+      en: "Work on maintenance and evolution of an e-commerce backend focused on stability, security, and support for intense seasonal demand.",
     },
     problem: {
-      pt: "As informações de pedidos, etapas e status estavam dispersas, gerando retrabalho e baixa previsibilidade operacional.",
-      en: "Order details, stages, and statuses were scattered, causing rework and low operational predictability.",
+      pt: "O sistema precisava sustentar períodos críticos de vendas com segurança e estabilidade, mesmo sob aumento significativo de tráfego e pedidos.",
+      en: "The system needed to withstand critical sales periods with security and stability, even under significant traffic and order spikes.",
     },
     solution: {
-      pt: "Criação de uma aplicação full stack para consolidar o fluxo, padronizar estados do processo e facilitar consulta operacional.",
-      en: "Built a full stack application to consolidate workflows, standardize process states, and simplify operational tracking.",
+      pt: "Atuei na otimização de consultas SQL, correção de vulnerabilidades e sustentação do backend em ambiente produtivo para manter continuidade operacional.",
+      en: "I worked on SQL query optimization, vulnerability fixes, and production backend support to maintain operational continuity.",
     },
     architecture: {
-      pt: "Backend em Laravel com APIs para fluxo de importação e front-end em Vue para operação diária com componentes reutilizáveis.",
-      en: "Laravel backend with import-flow APIs and a Vue frontend for daily operations using reusable components.",
+      pt: "O foco esteve em hardening, melhoria de rotinas backend e estabilidade do ambiente, preservando a operação sem grandes rupturas arquiteturais.",
+      en: "The focus was on hardening, improving backend routines, and keeping the environment stable without major architectural disruption.",
+    },
+    impact: {
+      pt: [
+        "Backend estabilizado para operar em períodos críticos como Black Friday.",
+        "Consultas SQL e rotinas backend ajustadas para melhor resposta sob carga.",
+        "Correções de segurança aplicadas diretamente em produção.",
+      ],
+      en: [
+        "Backend stabilized to operate during critical periods such as Black Friday.",
+        "SQL queries and backend routines adjusted for better behavior under load.",
+        "Security fixes applied directly in production.",
+      ],
     },
     security: {
-      pt: "Controle de perfis por área, validação de acesso por módulo e boas práticas de tratamento de dados sensíveis de operação.",
-      en: "Area-based profile controls, module-level access validation, and best practices for handling sensitive operational data.",
+      pt: "Correção de vulnerabilidades e reforço da confiabilidade em ambiente produtivo.",
+      en: "Vulnerability fixes and stronger reliability in the production environment.",
     },
     performance: {
-      pt: "Otimização de consultas por status e filtros compostos para manter usabilidade em telas de acompanhamento intenso.",
-      en: "Optimized status queries and compound filters to preserve usability in high-volume tracking interfaces.",
+      pt: "Ajustes de consultas SQL e rotinas backend para preservar estabilidade e tempo de resposta sob picos de acesso.",
+      en: "SQL query and backend routine adjustments to preserve stability and response time during access spikes.",
     },
     devops: {
-      pt: "Deploy em VPS Linux com configuração de servidor web, automações de build e rotina de atualização via SSH.",
-      en: "Deployed on Linux VPS with web server setup, build automations, and SSH-based update routines.",
+      pt: "Atuação próxima da infraestrutura Linux e do servidor web para manter o e-commerce estável em produção.",
+      en: "Worked close to Linux infrastructure and the web server to keep the e-commerce stable in production.",
     },
     responsibilities: {
       pt: [
-        "Levantamento técnico do fluxo operacional de importação",
-        "Implementação full stack de módulos de controle e rastreabilidade",
-        "Estruturacao de permissão de acesso por perfil",
-        "Suporte de deploy, manutenção e evolução contínua",
+        "Sustentei o backend em ambiente produtivo durante janelas de alta demanda.",
+        "Otimizei consultas SQL e rotinas críticas da aplicação.",
+        "Corrigi falhas de segurança com foco em continuidade operacional.",
+        "Apoiei a operação em períodos com múltiplas requisições simultâneas.",
       ],
       en: [
-        "Mapped import operational flow requirements",
-        "Implemented full stack modules for control and traceability",
-        "Structured profile-based access permissions",
-        "Supported deployment, maintenance, and continuous evolution",
+        "Supported the backend in production during high-demand windows.",
+        "Optimized SQL queries and critical application routines.",
+        "Fixed security issues with focus on operational continuity.",
+        "Supported operations during periods with multiple simultaneous requests.",
       ],
     },
-    technical_highlights: {
+    technicalHighlights: {
       pt: [
-        "Padronização de estados de processo para clareza operacional",
-        "Arquitetura orientada a fluxo para reduzir retrabalho",
-        "Base escalável para integrações futuras com serviços externos",
+        "Otimização de SQL em produção",
+        "Correções de segurança em ambiente real",
+        "Suporte a picos de tráfego",
+        "Manutenção backend com foco em estabilidade",
       ],
       en: [
-        "Process state standardization for operational clarity",
-        "Flow-oriented architecture to reduce rework",
-        "Scalable foundation for future integrations with external services",
+        "Production SQL optimization",
+        "Security fixes in a real environment",
+        "Traffic spike support",
+        "Backend maintenance focused on stability",
       ],
     },
-    technologies_used: {
-      pt: ["Laravel", "PHP", "Vue.js", "MySQL", "Nginx", "Linux VPS", "GitHub Actions"],
-      en: ["Laravel", "PHP", "Vue.js", "MySQL", "Nginx", "Linux VPS", "GitHub Actions"],
+    technologiesUsed: {
+      pt: ["Laravel", "MySQL", "SQL", "Nginx", "Linux VPS"],
+      en: ["Laravel", "MySQL", "SQL", "Nginx", "Linux VPS"],
     },
-    seo_keywords: {
+    seoKeywords: {
       pt: [
-        "Desenvolvedor Full Stack",
-        "Desenvolvedor Laravel e Vue",
-        "Engenheiro de Software Brasil",
-        "Desenvolvedor SaaS",
+        "Backend em produção",
+        "Otimização SQL",
+        "Segurança backend",
+        "Laravel e-commerce",
       ],
       en: [
-        "Full Stack Developer",
-        "Laravel Vue Developer",
-        "Software Engineer Brazil",
-        "SaaS Engineer",
+        "Production backend",
+        "SQL optimization",
+        "Backend security",
+        "Laravel e-commerce",
       ],
     },
-    geo_summary: {
-      pt: "José Manoel foi o engenheiro full stack responsável por estruturar e implementar o sistema da VA Imports. O problema resolvido foi a dispersão de informações e a falta de rastreabilidade no processo operacional. O projeto utilizou Laravel, Vue.js, MySQL e infraestrutura Linux com Nginx. A relevância técnica está na padronização do fluxo e na evolução da operação para um modelo digital mais confiável.",
-      en: "José Manoel was the full stack engineer responsible for designing and implementing the VA Imports system. The solved problem was fragmented information and lack of traceability in operational processes. The project used Laravel, Vue.js, MySQL, and Linux infrastructure with Nginx. Its technical relevance comes from workflow standardization and a more reliable digital operating model.",
+    geoSummary: {
+      pt: "Na VA Imports, José Manoel atuou na sustentação do backend de e-commerce com foco em segurança, SQL e estabilidade operacional em momentos críticos de venda.",
+      en: "At VA Imports, José Manoel supported an e-commerce backend with emphasis on security, SQL, and operational stability during critical sales periods.",
     },
   },
   {
     slug: "barbearia-klp",
     image: "/projects/barbearia-klp.svg",
+    company: {
+      pt: "Barbearia KLP",
+      en: "Barbershop KLP",
+    },
     name: {
       pt: "Barbearia KLP",
-      en: "Barbearia KLP",
+      en: "Barbershop KLP",
+    },
+    kicker: {
+      pt: "ERP enxuto para digitalizar operação",
+      en: "Lean ERP to digitize operations",
     },
     overview: {
-      pt: "Aplicação de gestão e agendamento para serviços de barbearia, com foco em operação enxuta, atendimento e rotina administrativa.",
-      en: "Management and booking application for barbershop services, focused on lean operations, service quality, and administrative routine.",
+      pt: "Sistema de gestão desenvolvido para substituir processos manuais por fluxos digitais e melhorar a eficiência operacional do negócio.",
+      en: "Management system built to replace manual processes with digital workflows and improve business operational efficiency.",
     },
     problem: {
-      pt: "A operação dependia de processos manuais para agenda e confirmação, o que prejudicava organização e previsibilidade diária.",
-      en: "Operations depended on manual scheduling and confirmation processes, which harmed daily organization and predictability.",
+      pt: "A operação dependia de controles manuais que geravam retrabalho, baixa previsibilidade e dificuldade de organização interna.",
+      en: "Operations depended on manual controls that caused rework, low predictability, and difficulty in internal organization.",
     },
     solution: {
-      pt: "Desenvolvimento de solução web com agenda centralizada, cadastro de serviços e histórico operacional acessível para equipe.",
-      en: "Developed a web solution with centralized scheduling, service catalog management, and accessible operational history for staff.",
+      pt: "Desenvolvi um ERP com regras de negócio, modelagem relacional e rotinas operacionais para digitalizar o fluxo principal do negócio.",
+      en: "I built an ERP with business rules, relational modeling, and operational routines to digitize the core business workflow.",
     },
     architecture: {
-      pt: "Aplicação full stack com camada backend para regras de agenda e frontend orientado a produtividade para uso rápido no atendimento.",
-      en: "Full stack application with a backend layer for scheduling rules and a productivity-focused frontend for quick service usage.",
+      pt: "A aplicação foi estruturada com MVC e backend responsável por consolidar agenda, cadastro e fluxos administrativos em uma base única.",
+      en: "The application was structured with MVC and a backend responsible for consolidating scheduling, records, and administrative flows in a single base.",
+    },
+    impact: {
+      pt: [
+        "Processos manuais substituídos por rotinas digitais.",
+        "Melhoria direta na organização interna e redução de retrabalho.",
+        "Base de dados relacional estruturada para continuidade da operação.",
+      ],
+      en: [
+        "Manual processes replaced by digital routines.",
+        "Direct improvement in internal organization and reduced rework.",
+        "Relational data foundation structured for continued operation.",
+      ],
     },
     security: {
-      pt: "Controle de acesso por perfil e validação de operações críticas para preservar integridade dos dados do negócio.",
-      en: "Profile-based access control and critical operation validation to preserve business data integrity.",
+      pt: "As regras de negócio no backend ajudaram a reduzir inconsistências e preservar integridade dos dados operacionais.",
+      en: "Backend business rules helped reduce inconsistencies and preserve operational data integrity.",
     },
     performance: {
-      pt: "Foco em carregamento rápido e interações diretas para manter fluidez em ambiente de atendimento presencial.",
-      en: "Focused on fast loading and direct interactions to keep workflows smooth in in-person service environments.",
+      pt: "A solução foi desenhada para fluidez operacional e uso simples em rotinas diárias do negócio.",
+      en: "The solution was designed for operational fluidity and straightforward use in daily business routines.",
     },
     devops: {
-      pt: "Deploy em servidor Linux com configuração de ambiente simples, versionamento via Git e rotina de atualização controlada.",
-      en: "Deployed on Linux server with simple environment setup, Git-based versioning, and controlled update routines.",
+      pt: "Entrega completa com ambiente simples e base preparada para manutenção contínua.",
+      en: "Complete delivery with a simple environment and a codebase prepared for ongoing maintenance.",
     },
     responsibilities: {
       pt: [
-        "Definição funcional do fluxo de atendimento e agenda",
-        "Implementação full stack com backend e frontend integrados",
-        "Configuração de deploy e suporte técnico pós-entrega",
-        "Evolução incremental da aplicação conforme necessidade operacional",
+        "Desenvolvi o sistema de gestão com foco em operação enxuta.",
+        "Modelei banco de dados relacional e regras de negócio em backend.",
+        "Estruturei funcionalidades administrativas para reduzir trabalho manual.",
+        "Entreguei a solução completa com impacto direto no processo interno do negócio.",
       ],
       en: [
-        "Defined service and scheduling functional flow",
-        "Implemented integrated full stack backend and frontend",
-        "Configured deployment and post-delivery technical support",
-        "Evolved the application incrementally based on operational needs",
+        "Built the management system focused on lean operations.",
+        "Modeled the relational database and backend business rules.",
+        "Structured administrative features to reduce manual work.",
+        "Delivered the full solution with direct impact on internal business processes.",
       ],
     },
-    technical_highlights: {
+    technicalHighlights: {
       pt: [
-        "Experiência otimizada para uso rápido em contexto presencial",
-        "Modelo de agenda estruturado para reduzir fricção operacional",
-        "Arquitetura simples e sustentável para manutenção contínua",
+        "ERP sob medida",
+        "Modelagem relacional",
+        "Regras de negócio no backend",
+        "Digitalização de operação manual",
       ],
       en: [
-        "Optimized experience for fast in-person usage",
-        "Structured schedule model to reduce operational friction",
-        "Simple and sustainable architecture for continuous maintenance",
+        "Tailored ERP",
+        "Relational modeling",
+        "Backend business rules",
+        "Digitization of manual operations",
       ],
     },
-    technologies_used: {
-      pt: ["Laravel", "PHP", "Vue.js", "MySQL", "Tailwind CSS", "Linux VPS", "Nginx"],
-      en: ["Laravel", "PHP", "Vue.js", "MySQL", "Tailwind CSS", "Linux VPS", "Nginx"],
+    technologiesUsed: {
+      pt: ["Laravel", "PHP", "MySQL", "MVC"],
+      en: ["Laravel", "PHP", "MySQL", "MVC"],
     },
-    seo_keywords: {
+    seoKeywords: {
       pt: [
-        "Desenvolvedor Full Stack",
-        "Desenvolvedor Laravel e Vue",
-        "Engenheiro de Software Brasil",
-        "Desenvolvedor SaaS",
+        "ERP com Laravel",
+        "Backend sob medida",
+        "Sistema de gestão",
+        "Modelagem de dados",
       ],
       en: [
-        "Full Stack Developer",
-        "Laravel Vue Developer",
-        "Software Engineer Brazil",
-        "SaaS Engineer",
+        "Laravel ERP",
+        "Custom backend",
+        "Management system",
+        "Data modeling",
       ],
     },
-    geo_summary: {
-      pt: "José Manoel atuou como desenvolvedor full stack no projeto Barbearia KLP. O problema resolvido foi a dependência de controles manuais no agendamento e na rotina administrativa. Foram utilizadas tecnologias como Laravel, Vue.js, MySQL e infraestrutura Linux. A relevância técnica está na aplicação enxuta, com boa experiência de uso e base de código preparada para evolução contínua.",
-      en: "José Manoel acted as full stack developer in the Barbearia KLP project. The solved problem was the dependency on manual controls for booking and administrative routines. Technologies included Laravel, Vue.js, MySQL, and Linux infrastructure. The implementation is technically relevant because it delivers a lean application with strong usability and a codebase prepared for continuous evolution.",
+    geoSummary: {
+      pt: "José Manoel desenvolveu um ERP para a Barbearia KLP com foco em backend, modelagem relacional e digitalização da operação diária.",
+      en: "José Manoel built an ERP for Barbershop KLP focused on backend logic, relational modeling, and digitizing daily operations.",
     },
   },
 ];
@@ -370,11 +462,14 @@ export type Project = {
   slug: string;
   image: string;
   liveUrl?: string;
+  company: LocalizedString;
+  kicker: LocalizedString;
   stack: string[];
   title: LocalizedString;
   summary: LocalizedString;
   challenge: LocalizedString;
   solution: LocalizedString;
+  impact: LocalizedStringArray;
   capabilities: LocalizedStringArray;
 };
 
@@ -382,14 +477,13 @@ export const projects: Project[] = projectCaseStudies.map((project) => ({
   slug: project.slug,
   image: project.image,
   liveUrl: project.liveUrl,
-  stack: project.technologies_used.en,
+  company: project.company,
+  kicker: project.kicker,
+  stack: project.technologiesUsed.en,
   title: project.name,
   summary: project.overview,
   challenge: project.problem,
   solution: project.solution,
-  capabilities: project.technical_highlights,
+  impact: project.impact,
+  capabilities: project.technicalHighlights,
 }));
-
-
-
-

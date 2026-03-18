@@ -49,33 +49,38 @@ export function TimelineItem({
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.35, ease: "easeOut", delay: Math.min(index * 0.05, 0.25) }}
           className={cn(
-            "surface rounded-2xl border border-border/70 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35",
+            "surface rounded-[1.75rem] border border-border/70 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35",
             alignLeftOnDesktop ? "md:ml-8" : "md:mr-8",
           )}
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary/90">{item.period}</p>
+          <p className="soft-label text-primary/90">{item.period}</p>
           <h2 className="mt-3 text-2xl font-semibold leading-tight">{item.title}</h2>
           {item.context ? (
-            <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">{item.context}</p>
+            <p className="mt-2 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+              {item.context}
+            </p>
           ) : null}
           <p className="mt-2 text-sm font-medium text-muted-foreground">{item.role}</p>
 
+          {item.summary ? <p className="mt-5 text-sm leading-7 text-muted-foreground">{item.summary}</p> : null}
+
           {item.stack && item.stack.length > 0 ? (
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2">
               {item.stack.map((tech) => (
-                <Badge key={tech} variant="outline">
+                <Badge key={tech} variant="outline" className="rounded-full">
                   {tech}
                 </Badge>
               ))}
             </div>
           ) : null}
 
-          {item.summary ? <p className="mt-5 text-sm leading-7 text-muted-foreground">{item.summary}</p> : null}
-
           {item.responsibilities && item.responsibilities.length > 0 ? (
-            <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+            <ul className="mt-5 space-y-3 text-sm leading-7 text-muted-foreground">
               {item.responsibilities.map((responsibility) => (
-                <li key={responsibility} className="list-inside list-disc">
+                <li
+                  key={responsibility}
+                  className="rounded-2xl border border-border/70 bg-background/50 px-4 py-3"
+                >
                   {responsibility}
                 </li>
               ))}
@@ -103,7 +108,7 @@ export function TimelineItem({
       </div>
 
       <div className="col-start-1 row-start-1 flex justify-center pt-8 md:col-start-2">
-        <span className="mt-0.5 block size-4 rounded-full border-2 border-primary/70 bg-background shadow-[0_0_0_4px_var(--background)] transition-colors duration-300 group-hover:border-primary group-hover:bg-primary/15" />
+        <span className="mt-0.5 block size-4 rounded-full border-2 border-primary/70 bg-background shadow-[0_0_0_4px_var(--background)] transition-colors duration-300 group-hover:border-primary group-hover:bg-primary/20" />
       </div>
     </li>
   );

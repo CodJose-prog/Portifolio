@@ -12,6 +12,9 @@ export type Dictionary = {
   footer: {
     text: string;
     sourceCode: string;
+    contactTitle: string;
+    locationTitle: string;
+    navigationTitle: string;
   };
   breadcrumbs: {
     home: string;
@@ -22,42 +25,63 @@ export type Dictionary = {
     insights: string;
   };
   home: {
-    badge: string;
-    h1: string;
-    subheadline: string;
     primaryCta: string;
-    whatsAppCta: string;
-    featuredTitle: string;
-    featuredSubtitle: string;
+    secondaryCta: string;
+    metricsTitle: string;
+    metricsSubtitle: string;
+    aboutTitle: string;
+    aboutSubtitle: string;
+    specialtiesTitle: string;
+    specialtiesSubtitle: string;
+    experienceTitle: string;
+    experienceSubtitle: string;
+    casesTitle: string;
+    casesSubtitle: string;
+    differentiatorsTitle: string;
+    differentiatorsSubtitle: string;
     technologiesTitle: string;
     faqTitle: string;
     finalCtaTitle: string;
     finalCtaText: string;
     finalCtaButton: string;
+    liveProjectLabel: string;
+    readCaseLabel: string;
+    viewAllCasesLabel: string;
   };
   about: {
     h1: string;
     intro: string;
-    sections: {
-      title: string;
-      content: string[];
-    }[];
+    trajectoryTitle: string;
+    focusTitle: string;
+    educationTitle: string;
+    certificationsTitle: string;
   };
   contact: {
     h1: string;
     intro: string;
     directTitle: string;
-    directItems: string[];
+    directText: string;
     responseTitle: string;
-    responseItems: string[];
+    responseText: string;
+    primaryButton: string;
+    secondaryButton: string;
   };
   projects: {
     h1: string;
     intro: string;
+    overviewTitle: string;
     readCase: string;
+    liveProject: string;
     detailLabels: {
+      company: string;
       challenge: string;
       solution: string;
+      architecture: string;
+      impact: string;
+      security: string;
+      performance: string;
+      devops: string;
+      responsibilities: string;
       capabilities: string;
       stack: string;
       allProjects: string;
@@ -70,97 +94,87 @@ export const dictionaries: Record<Lang, Dictionary> = {
     locale: "pt-BR",
     nav: {
       home: "Início",
-      projects: "Projetos",
+      projects: "Cases",
       about: "Sobre",
       contact: "Contato",
-      cta: "Fale comigo",
+      cta: "Falar comigo",
     },
     footer: {
-      text: "Portfólio profissional com foco em engenharia de software moderna.",
+      text: "Portfólio de backend engineering com foco em APIs, arquitetura, operação e sistemas reais em produção.",
       sourceCode: "Código no GitHub",
+      contactTitle: "Contato",
+      locationTitle: "Base",
+      navigationTitle: "Navegação",
     },
     breadcrumbs: {
       home: "Início",
-      projects: "Projetos",
+      projects: "Cases",
       about: "Sobre",
       contact: "Contato",
       blog: "Blog",
       insights: "Insights",
     },
     home: {
-      badge: "Desenvolvedor Full Stack",
-      h1: "Desenvolvedor Full Stack e Engenheiro de Software",
-      subheadline: "Experiência em liderança técnica, SaaS multi-tenant e integração de sistemas com Laravel, Vue.js, Node.js e TypeScript.",
-      primaryCta: "Ver projetos",
-      whatsAppCta: "Falar comigo (WhatsApp)",
-      featuredTitle: "Projetos em destaque",
-      featuredSubtitle: "Casos reais com foco em produto, arquitetura e entrega.",
-      technologiesTitle: "Tecnologias que domino",
-      faqTitle: "FAQ",
-      finalCtaTitle: "Vamos construir algo sólido?",
-      finalCtaText: "Se você precisa evoluir um produto ou iniciar um sistema novo, posso apoiar da arquitetura à entrega.",
+      primaryCta: "Ver cases",
+      secondaryCta: "Entrar em contato",
+      metricsTitle: "Experiência aplicada em backend real",
+      metricsSubtitle: "Indicadores extraídos do currículo e convertidos em sinais claros de maturidade técnica.",
+      aboutTitle: "Quem eu sou",
+      aboutSubtitle: "Trajetória, formação e foco atual em engenharia backend.",
+      specialtiesTitle: "Stack e especialidades",
+      specialtiesSubtitle: "Organização por domínio técnico, com ênfase em backend, dados, infraestrutura e arquitetura.",
+      experienceTitle: "Experiência em produção",
+      experienceSubtitle: "Projetos, produtos e operações que exigiram backend confiável, integrações e visão arquitetural.",
+      casesTitle: "Cases em destaque",
+      casesSubtitle: "Problema, solução, stack e impacto em experiências com maior densidade técnica.",
+      differentiatorsTitle: "Diferenciais",
+      differentiatorsSubtitle: "O que reforça meu posicionamento como backend engineer e não como full stack genérico.",
+      technologiesTitle: "Tecnologias que sustentam minha entrega",
+      faqTitle: "Perguntas rápidas",
+      finalCtaTitle: "Se você precisa de backend sólido, posso ajudar",
+      finalCtaText: "Atuo em APIs, SaaS multi-tenant, integrações, infraestrutura de aplicação e evolução técnica de sistemas já em produção.",
       finalCtaButton: "Ir para contato",
+      liveProjectLabel: "Projeto online",
+      readCaseLabel: "Ver case",
+      viewAllCasesLabel: "Ver todos os cases",
     },
     about: {
       h1: "Sobre José Manoel Pereira",
-      intro:
-        "Desenvolvedor Full Stack com experiência em liderança técnica de projetos e empreendedorismo de software. Especialista na arquitetura de soluções SaaS multi-tenant escaláveis utilizando o ecossistema PHP (Laravel) e JavaScript (Vue.js).",
-      sections: [
-        {
-          title: "Resumo profissional",
-          content: [
-            "Desenvolvedor Full Stack com experiência em liderança técnica de projetos e empreendedorismo de software. Especialista na arquitetura de soluções SaaS Multi-tenant escaláveis utilizando oecossistema PHP (Laravel) e JavaScript (Vue.js). Focado em boas práticas de engenharia desoftware, incluindo documentação técnica, padrões de projeto (Design Patterns) e integração de sistemas complexos. Ativo em comunidades de tecnologia, buscando sempre compartilhar conhecimento e aplicar inovações em produtos reais.",
-          ],
-        },
-        {
-          title: "Formação acadêmica",
-          content: [
-            "Análise e Desenvolvimento de Sistemas - UNAMA (Conclusão: 2025).",
-            "Técnico em Desenvolvimento de Sistemas - IFPA (Conclusão: 2023).",
-          ],
-        },
-        {
-          title: "Certificações e comunidade",
-          content: [
-            "Maratona SBC de Programação - Fase Zero.",
-            "Java Foundations Certified Junior Associate (Preparatório) - Oracle Academy.",
-            "Desenvolvimento Web Moderno com PHP - Udemy.",
-            "Microservices Architecture with Golang - Workshop UNAMA.",
-            "AI & Machine Learning Concepts - Workshop Técnico.",
-          ],
-        },
-      ],
+      intro: "Backend Engineer com experiência prática em APIs, Laravel, Node.js, arquitetura backend, SaaS multi-tenant, PostgreSQL, Docker e CI/CD.",
+      trajectoryTitle: "Trajetória e posicionamento",
+      focusTitle: "Foco técnico atual",
+      educationTitle: "Formação",
+      certificationsTitle: "Certificações e comunidade",
     },
     contact: {
       h1: "Contato profissional",
-      intro:
-        "Se você busca um engenheiro de software para construir ou evoluir um produto web, posso apoiar da descoberta técnica à entrega.",
+      intro: "Se você está procurando alguém para construir ou evoluir backend com visão de produto, arquitetura e operação, este é o tipo de conversa que faz sentido para mim.",
       directTitle: "Canais diretos",
-      directItems: [
-        "Telefone: +55 93 99227-3046",
-        "LinkedIn para propostas e alinhamento de escopo",
-        "GitHub para avaliação de estilo de código e arquitetura",
-        "WhatsApp para contato comercial direto",
-      ],
-      responseTitle: "Tipos de projeto",
-      responseItems: [
-        "Aplicações web e sistemas internos",
-        "APIs, integrações e automações de processo",
-        "Evolução de arquitetura e performance",
-        "Projetos full stack com Laravel, Vue, React/Next.js e TypeScript",
-      ],
+      directText: "LinkedIn, GitHub e e-mail como canais principais. WhatsApp pode ser usado para agilizar contato comercial quando necessário.",
+      responseTitle: "Projetos em que consigo agregar mais valor",
+      responseText: "APIs, integrações, sistemas Laravel e Node.js, SaaS multi-tenant, otimização de consultas, deploy, CI/CD e backend para produtos em evolução.",
+      primaryButton: "Enviar e-mail",
+      secondaryButton: "Abrir LinkedIn",
     },
     projects: {
-      h1: "Experiência profissional",
-      intro:
-        "Linha do tempo profissional em ordem cronológica descendente, baseada no currículo oficial.",
+      h1: "Experiência e cases",
+      intro: "Recorte das experiências que melhor representam meu momento atual como backend engineer, com foco em APIs, arquitetura, dados e operação.",
+      overviewTitle: "Visão geral",
       readCase: "Ver case completo",
+      liveProject: "Ver projeto online",
       detailLabels: {
-        challenge: "Desafio",
+        company: "Contexto",
+        challenge: "Problema",
         solution: "Solução",
-        capabilities: "Capacidades técnicas",
+        architecture: "Arquitetura backend",
+        impact: "Impacto",
+        security: "Segurança",
+        performance: "Performance",
+        devops: "Infra e entrega",
+        responsibilities: "Responsabilidades",
+        capabilities: "Destaques técnicos",
         stack: "Stack utilizada",
-        allProjects: "Todos os projetos",
+        allProjects: "Voltar para os cases",
       },
     },
   },
@@ -168,97 +182,87 @@ export const dictionaries: Record<Lang, Dictionary> = {
     locale: "en-US",
     nav: {
       home: "Home",
-      projects: "Projects",
+      projects: "Cases",
       about: "About",
       contact: "Contact",
       cta: "Get in touch",
     },
     footer: {
-      text: "Professional portfolio focused on modern software engineering.",
+      text: "Backend engineering portfolio focused on APIs, architecture, operations, and real production systems.",
       sourceCode: "Source on GitHub",
+      contactTitle: "Contact",
+      locationTitle: "Base",
+      navigationTitle: "Navigation",
     },
     breadcrumbs: {
       home: "Home",
-      projects: "Projects",
+      projects: "Cases",
       about: "About",
       contact: "Contact",
       blog: "Blog",
       insights: "Insights",
     },
     home: {
-      badge: "Full Stack Developer",
-      h1: "Full Stack Developer and Software Engineer",
-      subheadline: "Experience in technical leadership, multi-tenant SaaS architecture, and system integration with Laravel, Vue.js, Node.js, and TypeScript.",
-      primaryCta: "View projects",
-      whatsAppCta: "Talk to me (WhatsApp)",
-      featuredTitle: "Featured projects",
-      featuredSubtitle: "Real cases focused on product, architecture, and delivery.",
-      technologiesTitle: "Technologies I work with",
-      faqTitle: "FAQ",
-      finalCtaTitle: "Need a strong technical partner?",
-      finalCtaText: "If you need to improve an existing product or start a new system, I can support architecture and delivery.",
+      primaryCta: "View case studies",
+      secondaryCta: "Get in touch",
+      metricsTitle: "Applied experience in real backend systems",
+      metricsSubtitle: "Signals extracted from the resume and translated into practical engineering evidence.",
+      aboutTitle: "Who I am",
+      aboutSubtitle: "Trajectory, education, and current focus on backend engineering.",
+      specialtiesTitle: "Stack and specialties",
+      specialtiesSubtitle: "Organized by technical domain, with emphasis on backend, data, infrastructure, and architecture.",
+      experienceTitle: "Production experience",
+      experienceSubtitle: "Products and operations that required reliable backend work, integrations, and architectural judgment.",
+      casesTitle: "Featured case studies",
+      casesSubtitle: "Problem, solution, stack, and impact from the most technically dense experiences.",
+      differentiatorsTitle: "Differentiators",
+      differentiatorsSubtitle: "What reinforces my positioning as a backend engineer rather than a generic full stack profile.",
+      technologiesTitle: "Technologies behind my delivery",
+      faqTitle: "Quick questions",
+      finalCtaTitle: "If you need strong backend foundations, I can help",
+      finalCtaText: "I work on APIs, multi-tenant SaaS, integrations, application infrastructure, and technical evolution for systems already in production.",
       finalCtaButton: "Go to contact",
+      liveProjectLabel: "Live project",
+      readCaseLabel: "View case",
+      viewAllCasesLabel: "View all case studies",
     },
     about: {
       h1: "About José Manoel Pereira",
-      intro:
-        "Full Stack Developer with experience in technical leadership and software entrepreneurship. Specialized in architecting scalable multi-tenant SaaS solutions using the PHP ecosystem (Laravel) and JavaScript (Vue.js).",
-      sections: [
-        {
-          title: "Professional summary",
-          content: [
-            "Focused on software engineering best practices, technical documentation, design patterns, and complex system integration.",
-            "Active in technology communities.",
-          ],
-        },
-        {
-          title: "Academic background",
-          content: [
-            "Systems Analysis and Development - UNAMA (Graduated: 2025).",
-            "Technical Degree in Systems Development - IFPA (Graduated: 2023).",
-          ],
-        },
-        {
-          title: "Certifications and community",
-          content: [
-            "SBC Programming Marathon - Zero Phase.",
-            "Java Foundations Certified Junior Associate (Preparatory) - Oracle Academy.",
-            "Modern Web Development with PHP - Udemy.",
-            "Microservices Architecture with Golang - UNAMA Workshop.",
-            "AI & Machine Learning Concepts - Technical Workshop.",
-          ],
-        },
-      ],
+      intro: "Backend Engineer with hands-on experience in APIs, Laravel, Node.js, backend architecture, multi-tenant SaaS, PostgreSQL, Docker, and CI/CD.",
+      trajectoryTitle: "Trajectory and positioning",
+      focusTitle: "Current technical focus",
+      educationTitle: "Education",
+      certificationsTitle: "Certifications and community",
     },
     contact: {
       h1: "Professional contact",
-      intro:
-        "If you need a software engineer to build or evolve a web product, I can support technical discovery, architecture, and delivery.",
+      intro: "If you are looking for someone to build or evolve backend systems with product vision, architecture, and operations in mind, that is the kind of work I fit best.",
       directTitle: "Direct channels",
-      directItems: [
-        "Phone: +55 93 99227-3046",
-        "LinkedIn for project discussion and scope alignment",
-        "GitHub for code style and architecture references",
-        "WhatsApp for direct hiring communication",
-      ],
-      responseTitle: "Project types",
-      responseItems: [
-        "Web applications and internal systems",
-        "APIs, integrations, and process automation",
-        "Architecture and performance improvements",
-        "Full stack delivery with Laravel, Vue, React/Next.js, and TypeScript",
-      ],
+      directText: "LinkedIn, GitHub, and email are the primary channels. WhatsApp can be used when a faster commercial conversation makes sense.",
+      responseTitle: "Projects where I add the most value",
+      responseText: "APIs, integrations, Laravel and Node.js systems, multi-tenant SaaS, query optimization, deployment, CI/CD, and backend evolution for live products.",
+      primaryButton: "Send email",
+      secondaryButton: "Open LinkedIn",
     },
     projects: {
-      h1: "Professional experience",
-      intro: "Professional timeline in descending chronological order, based on the official resume.",
+      h1: "Experience and case studies",
+      intro: "A selection of experiences that best represent my current stage as a backend engineer, focused on APIs, architecture, data, and operations.",
+      overviewTitle: "Overview",
       readCase: "View full case study",
+      liveProject: "View live project",
       detailLabels: {
-        challenge: "Challenge",
+        company: "Context",
+        challenge: "Problem",
         solution: "Solution",
-        capabilities: "Technical capabilities",
+        architecture: "Backend architecture",
+        impact: "Impact",
+        security: "Security",
+        performance: "Performance",
+        devops: "Infra and delivery",
+        responsibilities: "Responsibilities",
+        capabilities: "Technical highlights",
         stack: "Stack",
-        allProjects: "All projects",
+        allProjects: "Back to case studies",
       },
     },
   },
