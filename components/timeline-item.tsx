@@ -76,7 +76,7 @@ export function TimelineItem({
 
           {item.responsibilities && item.responsibilities.length > 0 ? (
             <ul className="mt-5 space-y-3 text-sm leading-7 text-muted-foreground">
-              {item.responsibilities.map((responsibility) => (
+              {item.responsibilities.slice(0, 3).map((responsibility) => (
                 <li
                   key={responsibility}
                   className="rounded-2xl border border-border/70 bg-background/50 px-4 py-3"

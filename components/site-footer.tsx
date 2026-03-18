@@ -3,6 +3,9 @@ import { Github, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
 import type { Dictionary } from "@/content/dictionary";
 import type { Lang } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
+import { Button } from "@/components/ui/button";
+import { StatusPill } from "@/components/system/status-pill";
+import { SystemPanel } from "@/components/system/system-panel";
 
 type SiteFooterProps = {
   lang: Lang;
@@ -50,80 +53,110 @@ export function SiteFooter({ lang, nav }: SiteFooterProps) {
       : "© 2026 José Manoel Pereira. Portfolio focused on backend engineering.";
 
   return (
-    <footer className="mt-20 border-t border-border/80 bg-background/72 backdrop-blur-xl">
-      <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.3fr_0.85fr_0.85fr] lg:px-8">
-        <section className="space-y-4">
-          <div>
-            <p className="text-base font-semibold">{siteConfig.name}</p>
-            <p className="mt-1 text-sm text-muted-foreground">{siteConfig.role}</p>
-          </div>
-          <p className="max-w-md text-sm leading-7 text-muted-foreground">
-            {lang === "pt"
-              ? "Construo backend com foco em APIs, arquitetura, dados, integração de serviços e entrega contínua."
-              : "I build backend systems focused on APIs, architecture, data, service integrations, and continuous delivery."}
-          </p>
-        </section>
+    <footer className="mt-20 pb-8">
+      <div className="mx-auto w-full max-w-[92rem] px-4 sm:px-6 lg:px-8">
+        <SystemPanel tone="muted" className="space-y-8 p-6 lg:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.85fr_0.85fr_0.9fr]">
+            <section className="space-y-4">
+              <StatusPill
+                tone="success"
+                label={lang === "pt" ? "system online" : "system online"}
+                pulse
+              />
+              <div>
+                <p className="text-base font-semibold">{siteConfig.name}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{siteConfig.role}</p>
+              </div>
+              <p className="max-w-md text-sm leading-7 text-muted-foreground">
+                {lang === "pt"
+                  ? "Construo backend com foco em APIs, arquitetura, dados, integração de serviços e entrega contínua."
+                  : "I build backend systems focused on APIs, architecture, data, service integrations, and continuous delivery."}
+              </p>
+            </section>
 
-        <section>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.08em] text-foreground">
-            {lang === "pt" ? "Navegação" : "Navigation"}
-          </h2>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-            {navigation.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
+            <section>
+              <h2 className="soft-label">{lang === "pt" ? "Navegacao" : "Navigation"}</h2>
+              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                {navigation.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-        <section>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.08em] text-foreground">
-            {lang === "pt" ? "Contato" : "Contact"}
-          </h2>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-            {contactLinks.map((item) => {
-              const Icon = item.icon;
-              return (
-                <li key={item.label}>
+            <section>
+              <h2 className="soft-label">{lang === "pt" ? "Contato" : "Contact"}</h2>
+              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                {contactLinks.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <li key={item.label}>
+                      <Link
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={item.ariaLabel}
+                        className="inline-flex items-center gap-2 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        <Icon className="size-4" />
+                        <span>{item.label}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+                <li className="pt-1">
+                  <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                    <MapPin className="size-4" />
+                    <span>{siteConfig.locationLabel}</span>
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+            <section className="space-y-4 rounded-[1.4rem] border border-border/70 bg-background/45 p-4">
+              <p className="soft-label">{lang === "pt" ? "MAVIK module" : "MAVIK module"}</p>
+              <p className="text-sm leading-7 text-muted-foreground">
+                {lang === "pt"
+                  ? "Software house para backend, integrações e produtos sob medida."
+                  : "Software house for backend, integrations, and tailored products."}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Button asChild size="sm">
+                  <Link href="https://mavik.cloud" target="_blank" rel="noopener noreferrer">
+                    {lang === "pt" ? "Contratar MAVIK" : "Hire MAVIK"}
+                  </Link>
+                </Button>
+                <Button asChild size="sm" variant="outline">
                   <Link
-                    href={item.href}
+                    href={siteConfig.sourceCodeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={item.ariaLabel}
-                    className="inline-flex items-center gap-2 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
-                    <Icon className="size-4" />
-                    <span>{item.label}</span>
+                    {lang === "pt" ? "Codigo" : "Source"}
                   </Link>
-                </li>
-              );
-            })}
-            <li className="pt-2">
-              <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="size-4" />
-                <span>{siteConfig.locationLabel}</span>
+                </Button>
               </div>
-            </li>
-          </ul>
-        </section>
-      </div>
+            </section>
+          </div>
 
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 border-t border-border/80 px-4 py-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <span>{copyright}</span>
-        <Link
-          href={siteConfig.sourceCodeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="transition-colors hover:text-primary"
-        >
-          {lang === "pt" ? "Código no GitHub" : "Source on GitHub"}
-        </Link>
+          <div className="dashboard-divider flex flex-col gap-3 pt-5 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+            <span>{copyright}</span>
+            <Link
+              href={siteConfig.sourceCodeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-primary"
+            >
+              {lang === "pt" ? "Codigo no GitHub" : "Source on GitHub"}
+            </Link>
+          </div>
+        </SystemPanel>
       </div>
     </footer>
   );

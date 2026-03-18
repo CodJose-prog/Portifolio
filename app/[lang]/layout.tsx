@@ -1,11 +1,10 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/content/dictionary";
 import { isValidLang, languages } from "@/lib/i18n";
 import { buildLocaleLayoutMetadata } from "@/lib/seo";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { SecretaryWidget } from "@/components/assistant/SecretaryWidget";
+import { SiteHeader } from "@/components/site-header";
 
 type LangLayoutProps = {
   children: React.ReactNode;
@@ -38,19 +37,18 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
     <div className="relative flex min-h-screen flex-col">
       <a
         href="#content"
-        className="absolute left-2 top-2 -translate-y-20 rounded-md bg-card px-3 py-2 text-xs text-foreground focus:translate-y-0"
+        className="absolute left-2 top-2 -translate-y-20 rounded-md border border-border bg-background px-3 py-2 text-xs text-foreground focus:translate-y-0"
       >
-        {lang === "pt" ? "Pular para o conteúdo" : "Skip to content"}
+        {lang === "pt" ? "Pular para o conteudo" : "Skip to content"}
       </a>
-      <SiteHeader lang={lang} nav={dictionary.nav} />
+      <SiteHeader lang={lang} />
       <main
         id="content"
         lang={dictionary.locale}
-        className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:px-6 lg:px-8"
+        className="mx-auto flex w-full max-w-6xl flex-1 px-4 py-4 sm:px-6 lg:px-8"
       >
         {children}
       </main>
-      <SiteFooter lang={lang} nav={dictionary.nav} />
       <SecretaryWidget lang={lang} />
     </div>
   );

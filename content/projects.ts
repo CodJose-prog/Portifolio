@@ -6,11 +6,13 @@ export type ProjectCaseStudy = {
   slug: string;
   image: string;
   liveUrl?: string;
+  primaryLinkLabel?: LocalizedString;
   dateCreated?: string;
   dateModified?: string;
   codeRepository?: string;
   company: LocalizedString;
   name: LocalizedString;
+  badge?: LocalizedString;
   kicker: LocalizedString;
   overview: LocalizedString;
   problem: LocalizedString;
@@ -41,100 +43,191 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       en: "ArenaCalendar",
     },
     kicker: {
-      pt: "SaaS multi-tenant para operação de reservas",
-      en: "Multi-tenant SaaS for booking operations",
+      pt: "SaaS multi-tenant para reservas",
+      en: "Multi-tenant SaaS for bookings",
     },
     overview: {
-      pt: "Produto próprio com backend orientado a APIs, autenticação, reservas e gestão administrativa para negócios com operação baseada em agenda.",
-      en: "Own product with an API-driven backend for authentication, bookings, and administrative management for schedule-based businesses.",
+      pt: "Backend de produto próprio com APIs, autenticação e reservas.",
+      en: "Own-product backend with APIs, authentication, and bookings.",
     },
     problem: {
-      pt: "Era necessário estruturar um backend capaz de sustentar múltiplos tenants, proteger dados por contexto, lidar com horários concorrentes e manter fluidez operacional em picos de demanda.",
-      en: "It was necessary to structure a backend able to support multiple tenants, protect data by context, handle concurrent time slots, and preserve operational fluidity during traffic peaks.",
+      pt: "Escalar reservas com múltiplos tenants e dados isolados.",
+      en: "Scale bookings with multiple tenants and isolated data.",
     },
     solution: {
-      pt: "Desenvolvi APIs REST em Laravel, arquitetura multi-tenant com PostgreSQL RLS, modelagem orientada a reservas e uma base preparada para evolução contínua do produto.",
-      en: "I built REST APIs in Laravel, a multi-tenant architecture with PostgreSQL RLS, booking-oriented data modeling, and a foundation prepared for continuous product evolution.",
+      pt: "Laravel + PostgreSQL RLS com modelagem orientada a reservas.",
+      en: "Laravel + PostgreSQL RLS with booking-oriented modeling.",
     },
     architecture: {
-      pt: "O backend foi organizado em torno de autenticação, contexto de tenant, regras de reservas, gestão de usuários e separação clara de responsabilidades para suportar escala e manutenção sustentável.",
-      en: "The backend was organized around authentication, tenant context, booking rules, user management, and clear separation of concerns to support scale and sustainable maintenance.",
+      pt: "Contexto de tenant, autenticação, reservas e gestão em um backend preparado para evolução contínua.",
+      en: "Tenant context, authentication, bookings, and management in a backend prepared for continuous evolution.",
     },
     impact: {
       pt: [
-        "13 tenants ativos em operação real.",
-        "Isolamento de dados em 100% das operações multi-tenant com PostgreSQL RLS.",
-        "Deploy reduzido de até 5 minutos para cerca de 40-90 segundos com CI/CD.",
-        "Backend preparado para picos de 10 a 15 reservas por tenant em períodos críticos.",
+        "13 tenants ativos.",
+        "100% de isolamento com PostgreSQL RLS.",
+        "Deploy de 40-90s com CI/CD.",
       ],
       en: [
-        "13 active tenants in real operation.",
-        "100% data isolation across multi-tenant operations with PostgreSQL RLS.",
-        "Deployment reduced from up to 5 minutes to roughly 40-90 seconds with CI/CD.",
-        "Backend prepared for peaks of 10 to 15 bookings per tenant during critical periods.",
+        "13 active tenants.",
+        "100% isolation with PostgreSQL RLS.",
+        "40-90s deployment with CI/CD.",
       ],
     },
     security: {
-      pt: "Isolamento por tenant com RLS, autenticação, controle de acesso e validação de operações críticas no backend.",
-      en: "Tenant isolation with RLS, authentication, access control, and backend validation for critical operations.",
+      pt: "RLS, autenticação e controle de acesso por contexto.",
+      en: "RLS, authentication, and context-based access control.",
     },
     performance: {
-      pt: "Otimização de consultas SQL, atenção à modelagem de dados e tratamento de fluxos críticos para reduzir latência em endpoints centrais.",
-      en: "SQL query optimization, careful data modeling, and critical flow handling to reduce latency on core endpoints.",
+      pt: "SQL e endpoints críticos otimizados para operação real.",
+      en: "SQL and critical endpoints optimized for real operations.",
     },
     devops: {
-      pt: "Deploy automatizado em VPS Linux com GitHub Actions, Docker, Nginx e rotina de publicação controlada para evolução rápida do produto.",
-      en: "Automated deployment on a Linux VPS with GitHub Actions, Docker, Nginx, and a controlled release workflow for fast product evolution.",
+      pt: "Docker, GitHub Actions, Linux VPS e Nginx.",
+      en: "Docker, GitHub Actions, Linux VPS, and Nginx.",
     },
     responsibilities: {
       pt: [
-        "Defini arquitetura backend e decisões técnicas de evolução do produto.",
-        "Implementei APIs REST para autenticação, usuários, reservas e gestão operacional.",
-        "Modelei estratégia multi-tenant com PostgreSQL RLS e separação de contexto.",
-        "Automatizei deploy e rotinas operacionais com foco em confiabilidade e velocidade.",
+        "Arquitetura backend do produto.",
+        "APIs REST para autenticação, usuários e reservas.",
+        "Deploy e rotinas operacionais automatizadas.",
       ],
       en: [
-        "Defined the backend architecture and technical evolution of the product.",
-        "Implemented REST APIs for authentication, users, bookings, and operational management.",
-        "Modeled the multi-tenant strategy with PostgreSQL RLS and context separation.",
-        "Automated deployment and operational routines with focus on reliability and speed.",
+        "Backend architecture of the product.",
+        "REST APIs for authentication, users, and bookings.",
+        "Automated deployment and operational routines.",
       ],
     },
     technicalHighlights: {
       pt: [
-        "APIs REST para fluxos críticos de negócio",
-        "PostgreSQL RLS para isolamento multi-tenant",
-        "Modelagem de reservas com prevenção de conflitos",
-        "CI/CD e Docker como parte do ciclo de engenharia",
+        "APIs REST",
+        "PostgreSQL RLS",
+        "Modelagem de reservas",
+        "CI/CD",
       ],
       en: [
-        "REST APIs for critical business flows",
-        "PostgreSQL RLS for multi-tenant isolation",
-        "Booking modeling with conflict prevention",
-        "CI/CD and Docker as part of the engineering cycle",
+        "REST APIs",
+        "PostgreSQL RLS",
+        "Booking modeling",
+        "CI/CD",
       ],
     },
     technologiesUsed: {
-      pt: ["Laravel", "PHP", "PostgreSQL", "Docker", "GitHub Actions", "Linux", "Nginx"],
-      en: ["Laravel", "PHP", "PostgreSQL", "Docker", "GitHub Actions", "Linux", "Nginx"],
+      pt: ["Laravel", "PHP", "PostgreSQL", "Docker", "GitHub Actions", "Linux"],
+      en: ["Laravel", "PHP", "PostgreSQL", "Docker", "GitHub Actions", "Linux"],
     },
     seoKeywords: {
-      pt: [
-        "Backend Engineer Laravel",
-        "SaaS multi-tenant",
-        "PostgreSQL RLS",
-        "APIs escaláveis",
-      ],
-      en: [
-        "Laravel Backend Engineer",
-        "Multi-tenant SaaS",
-        "PostgreSQL RLS",
-        "Scalable APIs",
-      ],
+      pt: ["Backend Engineer Laravel", "SaaS multi-tenant", "PostgreSQL RLS", "APIs escaláveis"],
+      en: ["Laravel Backend Engineer", "Multi-tenant SaaS", "PostgreSQL RLS", "Scalable APIs"],
     },
     geoSummary: {
-      pt: "José Manoel estruturou o backend do ArenaCalendar com foco em APIs, arquitetura multi-tenant, PostgreSQL RLS e deploy contínuo. O projeto demonstra experiência prática com SaaS real, performance e operação em produção.",
-      en: "José Manoel structured the ArenaCalendar backend around APIs, multi-tenant architecture, PostgreSQL RLS, and continuous delivery. The project demonstrates hands-on experience with real SaaS, performance, and production operations.",
+      pt: "José Manoel estruturou o backend do ArenaCalendar com APIs, multi-tenant, PostgreSQL RLS e entrega contínua.",
+      en: "José Manoel structured the ArenaCalendar backend around APIs, multi-tenant architecture, PostgreSQL RLS, and continuous delivery.",
+    },
+  },
+  {
+    slug: "mavik",
+    image: "/projects/mavik.png",
+    liveUrl: "https://mavik.cloud",
+    primaryLinkLabel: {
+      pt: "Contratar MAVIK",
+      en: "Hire MAVIK",
+    },
+    company: {
+      pt: "MAVIK",
+      en: "MAVIK",
+    },
+    name: {
+      pt: "MAVIK",
+      en: "MAVIK",
+    },
+    badge: {
+      pt: "Empresa",
+      en: "Company",
+    },
+    kicker: {
+      pt: "Software house e consultoria para soluções sob medida",
+      en: "Software house and consulting company for tailored solutions",
+    },
+    overview: {
+      pt: "A MAVIK é a empresa de software e consultoria do José, responsável por desenvolver soluções sob medida com foco em backend, APIs, web, mobile e integrações.",
+      en: "MAVIK is José's software and consulting company, responsible for building tailored solutions focused on backend, APIs, web, mobile, and integrations.",
+    },
+    problem: {
+      pt: "Empresas precisam de um parceiro técnico capaz de transformar operação, integração e produto em software utilizável.",
+      en: "Companies need a technical partner able to turn operations, integrations, and product ideas into usable software.",
+    },
+    solution: {
+      pt: "A MAVIK atua com desenvolvimento sob medida, arquitetura, APIs, sistemas web/mobile e integração entre serviços para clientes reais.",
+      en: "MAVIK works with tailored development, architecture, APIs, web/mobile systems, and service integration for real clients.",
+    },
+    architecture: {
+      pt: "O papel da MAVIK no portfólio é institucional: mostrar operação real, capacidade de entrega e porta de entrada comercial para novos projetos.",
+      en: "MAVIK's role in the portfolio is institutional: to show real operations, delivery capability, and a commercial entry point for new projects.",
+    },
+    impact: {
+      pt: [
+        "Empresa responsável por projetos sob medida.",
+        "Atuação em backend, APIs, sistemas web/mobile e integrações.",
+        "Operação real com presença online em mavik.cloud.",
+      ],
+      en: [
+        "Company responsible for tailored software projects.",
+        "Work across backend, APIs, web/mobile systems, and integrations.",
+        "Real operation with an online presence at mavik.cloud.",
+      ],
+    },
+    security: {
+      pt: "Projetos conduzidos com foco em arquitetura, clareza técnica e sustentabilidade de longo prazo.",
+      en: "Projects led with focus on architecture, technical clarity, and long-term sustainability.",
+    },
+    performance: {
+      pt: "Entregas orientadas a performance, manutenção e evolução contínua de produto.",
+      en: "Deliveries oriented toward performance, maintainability, and continuous product evolution.",
+    },
+    devops: {
+      pt: "Deploy, integração de serviços e entrega contínua fazem parte da operação.",
+      en: "Deployment, service integration, and continuous delivery are part of the operation.",
+    },
+    responsibilities: {
+      pt: [
+        "Desenvolvimento de soluções sob medida para clientes.",
+        "Arquitetura de APIs, backends e sistemas conectados.",
+        "Atuação comercial e técnica por meio da MAVIK.",
+        "Base para contratação direta via mavik.cloud.",
+      ],
+      en: [
+        "Development of tailored solutions for clients.",
+        "Architecture of APIs, backends, and connected systems.",
+        "Commercial and technical operation through MAVIK.",
+        "Direct hiring entry point through mavik.cloud.",
+      ],
+    },
+    technicalHighlights: {
+      pt: [
+        "Software house real",
+        "Backend e APIs",
+        "Web + mobile",
+        "Integrações e consultoria",
+      ],
+      en: [
+        "Real software house",
+        "Backend and APIs",
+        "Web + mobile",
+        "Integrations and consulting",
+      ],
+    },
+    technologiesUsed: {
+      pt: ["Laravel", "Node.js", "TypeScript", "APIs REST", "Web", "Mobile", "Integrações"],
+      en: ["Laravel", "Node.js", "TypeScript", "REST APIs", "Web", "Mobile", "Integrations"],
+    },
+    seoKeywords: {
+      pt: ["MAVIK software house", "Desenvolvimento sob medida", "APIs e backend", "Consultoria em software"],
+      en: ["MAVIK software house", "Tailored software development", "APIs and backend", "Software consulting"],
+    },
+    geoSummary: {
+      pt: "A MAVIK é a software house do José Manoel, usada para entregar soluções sob medida em backend, APIs, sistemas web/mobile e integrações para clientes reais.",
+      en: "MAVIK is José Manoel's software house, used to deliver tailored backend, API, web/mobile, and integration solutions for real clients.",
     },
   },
   {
@@ -145,102 +238,98 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       en: "MAVIK",
     },
     name: {
-      pt: "Sistema de Rastreamento para Frigorífico",
-      en: "Tracking System for a Cold-Storage Company",
+      pt: "Plataforma de Rastreamento Operacional",
+      en: "Operational Tracking Platform",
+    },
+    badge: {
+      pt: "Projeto de Ouro",
+      en: "Flagship Project",
     },
     kicker: {
-      pt: "API REST central para operação web e mobile",
-      en: "Central REST API for web and mobile operations",
+      pt: "Case premium desenvolvido pela MAVIK para cliente do setor frigorífico",
+      en: "Premium case delivered by MAVIK for a client in the cold-storage sector",
     },
     overview: {
-      pt: "Case backend construído na MAVIK para centralizar rastreamento operacional com API REST, painel web e aplicativo mobile conectados ao mesmo núcleo de negócio.",
-      en: "Backend case built at MAVIK to centralize operational tracking with a REST API, web dashboard, and mobile app connected to the same business core.",
+      pt: "Sistema desenvolvido pela MAVIK para um cliente do setor frigorífico, com foco em rastreamento, controle operacional e integração entre backend, web e mobile.",
+      en: "System delivered by MAVIK for a client in the cold-storage sector, focused on tracking, operational control, and integration across backend, web, and mobile.",
     },
     problem: {
-      pt: "A operação precisava sair de fluxos dispersos e manuais para um sistema centralizado que garantisse rastreabilidade, comunicação entre interfaces e previsibilidade operacional.",
-      en: "The operation needed to move away from scattered, manual flows to a centralized system that ensured traceability, communication across interfaces, and operational predictability.",
+      pt: "Falta de visibilidade operacional, dados descentralizados e necessidade de controle em tempo real da operação e da logística.",
+      en: "Lack of operational visibility, decentralized data, and the need for real-time control over operations and logistics.",
     },
     solution: {
-      pt: "Estruturei uma API REST central com serviços em Node.js e TypeScript, conectando painel web, aplicativo mobile e integrações externas em torno de um fluxo operacional único.",
-      en: "I structured a central REST API with Node.js and TypeScript services, connecting the web dashboard, mobile app, and external integrations around a single operational flow.",
+      pt: "A MAVIK desenvolveu uma plataforma completa com API central, painel web para gestão e aplicativo mobile para operação em campo.",
+      en: "MAVIK developed a complete platform with a central API, a web dashboard for management, and a mobile app for field operations.",
     },
     architecture: {
-      pt: "A solução foi pensada como backend centralizador: regras de negócio no núcleo, endpoints bem definidos para múltiplos clientes e desenho preparado para expansão com novas integrações.",
-      en: "The solution was designed as a centralizing backend: business rules in the core, clearly defined endpoints for multiple clients, and an architecture prepared to expand with new integrations.",
+      pt: "Minha atuação via MAVIK foi no backend e na arquitetura da solução: API central, modelagem de dados, integração entre serviços e conexão entre as interfaces web e mobile.",
+      en: "My role through MAVIK was in backend and solution architecture: the central API, data modeling, service integration, and the connection between web and mobile interfaces.",
     },
     impact: {
       pt: [
-        "Entrega de sistema completo com API REST central, painel web e aplicativo mobile.",
-        "Redução de processos manuais por meio de integrações com APIs externas.",
-        "Padronização arquitetural para facilitar manutenção e evolução dos serviços backend.",
+        "Informações centralizadas em um único fluxo.",
+        "Melhoria no controle operacional.",
+        "Maior eficiência no processo.",
+        "Base escalável e estruturada para evolução.",
       ],
       en: [
-        "Delivered a complete system with a central REST API, web dashboard, and mobile app.",
-        "Reduced manual processes through external API integrations.",
-        "Established architecture standards to improve maintenance and evolution of backend services.",
+        "Information centralized in a single flow.",
+        "Improved operational control.",
+        "Greater process efficiency.",
+        "A scalable and structured foundation for evolution.",
       ],
     },
     security: {
-      pt: "A organização por serviços, contratos de API e separação clara das responsabilidades ajudou a reduzir fragilidade operacional entre interfaces e integrações.",
-      en: "Service organization, API contracts, and clear separation of responsibilities helped reduce operational fragility across interfaces and integrations.",
+      pt: "Contratos de API e separação clara de responsabilidades entre backend, web e mobile.",
+      en: "API contracts and clear separation of responsibilities between backend, web, and mobile.",
     },
     performance: {
-      pt: "A centralização da lógica no backend melhorou previsibilidade dos fluxos e simplificou a evolução das interfaces conectadas ao sistema.",
-      en: "Centralizing the logic in the backend improved flow predictability and simplified the evolution of interfaces connected to the system.",
+      pt: "Lógica centralizada para tornar rastreamento e operação mais previsíveis.",
+      en: "Centralized logic to make tracking and operations more predictable.",
     },
     devops: {
-      pt: "O case também envolveu padronização de arquitetura e organização de serviços para facilitar entregas e manutenção contínua em ambiente de cliente.",
-      en: "The case also involved architecture standardization and service organization to support delivery and continuous maintenance in a client environment.",
+      pt: "Serviços organizados para evolução contínua dentro da operação da MAVIK.",
+      en: "Services organized for continuous evolution within MAVIK's delivery flow.",
     },
     responsibilities: {
       pt: [
-        "Desenhei a API REST central para suportar diferentes interfaces de consumo.",
-        "Implementei serviços backend e integrações externas em Node.js e TypeScript.",
-        "Apoiei decisões arquiteturais para escalabilidade e manutenção de longo prazo.",
-        "Conectei backend, painel web e app mobile ao mesmo fluxo operacional.",
+        "Desenvolvimento backend da API central.",
+        "Construção de APIs e modelagem de dados.",
+        "Integração entre serviços, painel web e app mobile.",
+        "Participação na arquitetura geral da solução.",
       ],
       en: [
-        "Designed the central REST API to support different consuming interfaces.",
-        "Implemented backend services and external integrations in Node.js and TypeScript.",
-        "Supported architecture decisions for scalability and long-term maintainability.",
-        "Connected backend, web dashboard, and mobile app to the same operational flow.",
+        "Backend development of the central API.",
+        "API implementation and data modeling.",
+        "Integration across services, web dashboard, and mobile app.",
+        "Participation in the overall solution architecture.",
       ],
     },
     technicalHighlights: {
       pt: [
-        "Node.js e TypeScript para serviços backend",
-        "API REST como núcleo da operação",
-        "Integrações com APIs externas",
-        "Estrutura preparada para web e mobile",
+        "Desenvolvido pela MAVIK",
+        "API central para operação",
+        "Integração entre web, mobile e backend",
+        "Modelagem e arquitetura de solução",
       ],
       en: [
-        "Node.js and TypeScript for backend services",
-        "REST API as the operational core",
-        "External API integrations",
-        "Structure prepared for web and mobile",
+        "Case delivered by MAVIK",
+        "Central API for operations",
+        "Integration across web, mobile, and backend",
+        "Solution modeling and architecture",
       ],
     },
     technologiesUsed: {
-      pt: ["Node.js", "TypeScript", "REST API", "Integrações externas", "Painel web", "App mobile"],
-      en: ["Node.js", "TypeScript", "REST API", "External integrations", "Web dashboard", "Mobile app"],
+      pt: ["Node.js", "TypeScript", "REST API", "Integrações", "Web", "Mobile"],
+      en: ["Node.js", "TypeScript", "REST API", "Integrations", "Web", "Mobile"],
     },
     seoKeywords: {
-      pt: [
-        "Node.js backend",
-        "TypeScript API",
-        "Integrações externas",
-        "Arquitetura backend",
-      ],
-      en: [
-        "Node.js backend",
-        "TypeScript API",
-        "External integrations",
-        "Backend architecture",
-      ],
+      pt: ["Node.js backend", "TypeScript API", "Integrações externas", "Arquitetura backend"],
+      en: ["Node.js backend", "TypeScript API", "External integrations", "Backend architecture"],
     },
     geoSummary: {
-      pt: "Na MAVIK, José Manoel estruturou um backend central em Node.js e TypeScript para um sistema de rastreamento com painel web e aplicativo mobile. O destaque técnico está na API REST como núcleo da operação e nas integrações externas para reduzir trabalho manual.",
-      en: "At MAVIK, José Manoel structured a central backend in Node.js and TypeScript for a tracking system with a web dashboard and mobile app. The technical highlight is the REST API as the operational core and the external integrations used to reduce manual work.",
+      pt: "Case desenvolvido pela MAVIK para um cliente do setor frigorífico. José Manoel atuou diretamente no backend, na API central, na modelagem de dados e no apoio à arquitetura da solução.",
+      en: "Case delivered by MAVIK for a client in the cold-storage sector. José Manoel worked directly on the backend, central API, data modeling, and support for the solution architecture.",
     },
   },
   {
@@ -256,98 +345,76 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       en: "VA Imports",
     },
     kicker: {
-      pt: "Sustentação backend para e-commerce em períodos críticos",
-      en: "Backend support for e-commerce during critical periods",
+      pt: "Backend de e-commerce em alta demanda",
+      en: "E-commerce backend under high demand",
     },
     overview: {
-      pt: "Atuação em sustentação e evolução do backend de uma operação de e-commerce com foco em estabilidade, segurança e suporte a sazonalidades intensas.",
-      en: "Work on maintenance and evolution of an e-commerce backend focused on stability, security, and support for intense seasonal demand.",
+      pt: "Sustentação backend com foco em estabilidade e segurança.",
+      en: "Backend support focused on stability and security.",
     },
     problem: {
-      pt: "O sistema precisava sustentar períodos críticos de vendas com segurança e estabilidade, mesmo sob aumento significativo de tráfego e pedidos.",
-      en: "The system needed to withstand critical sales periods with security and stability, even under significant traffic and order spikes.",
+      pt: "Manter operação estável em períodos críticos de vendas.",
+      en: "Keep operations stable during critical sales periods.",
     },
     solution: {
-      pt: "Atuei na otimização de consultas SQL, correção de vulnerabilidades e sustentação do backend em ambiente produtivo para manter continuidade operacional.",
-      en: "I worked on SQL query optimization, vulnerability fixes, and production backend support to maintain operational continuity.",
+      pt: "SQL otimizado, falhas corrigidas e rotina produtiva estabilizada.",
+      en: "Optimized SQL, fixed issues, and stabilized production routines.",
     },
     architecture: {
-      pt: "O foco esteve em hardening, melhoria de rotinas backend e estabilidade do ambiente, preservando a operação sem grandes rupturas arquiteturais.",
-      en: "The focus was on hardening, improving backend routines, and keeping the environment stable without major architectural disruption.",
+      pt: "Hardening e melhorias backend sem romper a operação.",
+      en: "Hardening and backend improvements without breaking operations.",
     },
     impact: {
       pt: [
-        "Backend estabilizado para operar em períodos críticos como Black Friday.",
-        "Consultas SQL e rotinas backend ajustadas para melhor resposta sob carga.",
-        "Correções de segurança aplicadas diretamente em produção.",
+        "Operação estável em períodos críticos.",
+        "Melhor resposta sob carga.",
+        "Correções de segurança em produção.",
       ],
       en: [
-        "Backend stabilized to operate during critical periods such as Black Friday.",
-        "SQL queries and backend routines adjusted for better behavior under load.",
-        "Security fixes applied directly in production.",
+        "Stable operation during critical periods.",
+        "Better behavior under load.",
+        "Security fixes in production.",
       ],
     },
     security: {
-      pt: "Correção de vulnerabilidades e reforço da confiabilidade em ambiente produtivo.",
-      en: "Vulnerability fixes and stronger reliability in the production environment.",
+      pt: "Falhas corrigidas em ambiente real.",
+      en: "Issues fixed in a real production environment.",
     },
     performance: {
-      pt: "Ajustes de consultas SQL e rotinas backend para preservar estabilidade e tempo de resposta sob picos de acesso.",
-      en: "SQL query and backend routine adjustments to preserve stability and response time during access spikes.",
+      pt: "Consultas e rotinas ajustadas para picos de acesso.",
+      en: "Queries and routines tuned for traffic spikes.",
     },
     devops: {
-      pt: "Atuação próxima da infraestrutura Linux e do servidor web para manter o e-commerce estável em produção.",
-      en: "Worked close to Linux infrastructure and the web server to keep the e-commerce stable in production.",
+      pt: "Atuação próxima da infraestrutura Linux e Nginx.",
+      en: "Worked close to Linux and Nginx infrastructure.",
     },
     responsibilities: {
       pt: [
-        "Sustentei o backend em ambiente produtivo durante janelas de alta demanda.",
-        "Otimizei consultas SQL e rotinas críticas da aplicação.",
-        "Corrigi falhas de segurança com foco em continuidade operacional.",
-        "Apoiei a operação em períodos com múltiplas requisições simultâneas.",
+        "Sustentação do backend em produção.",
+        "Otimização de SQL e rotinas críticas.",
+        "Correções com foco em continuidade.",
       ],
       en: [
-        "Supported the backend in production during high-demand windows.",
-        "Optimized SQL queries and critical application routines.",
-        "Fixed security issues with focus on operational continuity.",
-        "Supported operations during periods with multiple simultaneous requests.",
+        "Production backend support.",
+        "Optimization of SQL and critical routines.",
+        "Fixes focused on continuity.",
       ],
     },
     technicalHighlights: {
-      pt: [
-        "Otimização de SQL em produção",
-        "Correções de segurança em ambiente real",
-        "Suporte a picos de tráfego",
-        "Manutenção backend com foco em estabilidade",
-      ],
-      en: [
-        "Production SQL optimization",
-        "Security fixes in a real environment",
-        "Traffic spike support",
-        "Backend maintenance focused on stability",
-      ],
+      pt: ["SQL em produção", "Segurança", "Alta demanda", "Estabilidade"],
+      en: ["Production SQL", "Security", "High demand", "Stability"],
     },
     technologiesUsed: {
       pt: ["Laravel", "MySQL", "SQL", "Nginx", "Linux VPS"],
       en: ["Laravel", "MySQL", "SQL", "Nginx", "Linux VPS"],
     },
     seoKeywords: {
-      pt: [
-        "Backend em produção",
-        "Otimização SQL",
-        "Segurança backend",
-        "Laravel e-commerce",
-      ],
-      en: [
-        "Production backend",
-        "SQL optimization",
-        "Backend security",
-        "Laravel e-commerce",
-      ],
+      pt: ["Backend em produção", "Otimização SQL", "Segurança backend", "Laravel e-commerce"],
+      en: ["Production backend", "SQL optimization", "Backend security", "Laravel e-commerce"],
     },
     geoSummary: {
-      pt: "Na VA Imports, José Manoel atuou na sustentação do backend de e-commerce com foco em segurança, SQL e estabilidade operacional em momentos críticos de venda.",
-      en: "At VA Imports, José Manoel supported an e-commerce backend with emphasis on security, SQL, and operational stability during critical sales periods.",
+      pt: "Na VA Imports, José Manoel atuou na sustentação do backend de e-commerce com foco em segurança, SQL e estabilidade.",
+      en: "At VA Imports, José Manoel supported an e-commerce backend focused on security, SQL, and stability.",
     },
   },
   {
@@ -366,94 +433,72 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       en: "Lean ERP to digitize operations",
     },
     overview: {
-      pt: "Sistema de gestão desenvolvido para substituir processos manuais por fluxos digitais e melhorar a eficiência operacional do negócio.",
-      en: "Management system built to replace manual processes with digital workflows and improve business operational efficiency.",
+      pt: "ERP para substituir processos manuais.",
+      en: "ERP built to replace manual processes.",
     },
     problem: {
-      pt: "A operação dependia de controles manuais que geravam retrabalho, baixa previsibilidade e dificuldade de organização interna.",
-      en: "Operations depended on manual controls that caused rework, low predictability, and difficulty in internal organization.",
+      pt: "Reduzir retrabalho e organizar a operação.",
+      en: "Reduce rework and organize operations.",
     },
     solution: {
-      pt: "Desenvolvi um ERP com regras de negócio, modelagem relacional e rotinas operacionais para digitalizar o fluxo principal do negócio.",
-      en: "I built an ERP with business rules, relational modeling, and operational routines to digitize the core business workflow.",
+      pt: "Sistema com regras de negócio e base relacional.",
+      en: "System with business rules and a relational data layer.",
     },
     architecture: {
-      pt: "A aplicação foi estruturada com MVC e backend responsável por consolidar agenda, cadastro e fluxos administrativos em uma base única.",
-      en: "The application was structured with MVC and a backend responsible for consolidating scheduling, records, and administrative flows in a single base.",
+      pt: "MVC com backend consolidando agenda e fluxos administrativos.",
+      en: "MVC with a backend consolidating scheduling and admin workflows.",
     },
     impact: {
       pt: [
-        "Processos manuais substituídos por rotinas digitais.",
-        "Melhoria direta na organização interna e redução de retrabalho.",
-        "Base de dados relacional estruturada para continuidade da operação.",
+        "Processos manuais digitalizados.",
+        "Mais organização interna.",
+        "Menos retrabalho operacional.",
       ],
       en: [
-        "Manual processes replaced by digital routines.",
-        "Direct improvement in internal organization and reduced rework.",
-        "Relational data foundation structured for continued operation.",
+        "Manual processes digitized.",
+        "Better internal organization.",
+        "Less operational rework.",
       ],
     },
     security: {
-      pt: "As regras de negócio no backend ajudaram a reduzir inconsistências e preservar integridade dos dados operacionais.",
-      en: "Backend business rules helped reduce inconsistencies and preserve operational data integrity.",
+      pt: "Regras de negócio protegendo consistência dos dados.",
+      en: "Business rules protecting data consistency.",
     },
     performance: {
-      pt: "A solução foi desenhada para fluidez operacional e uso simples em rotinas diárias do negócio.",
-      en: "The solution was designed for operational fluidity and straightforward use in daily business routines.",
+      pt: "Fluxos simples para uso rápido no dia a dia.",
+      en: "Simple flows for fast daily usage.",
     },
     devops: {
-      pt: "Entrega completa com ambiente simples e base preparada para manutenção contínua.",
-      en: "Complete delivery with a simple environment and a codebase prepared for ongoing maintenance.",
+      pt: "Entrega preparada para manutenção contínua.",
+      en: "Delivery prepared for continuous maintenance.",
     },
     responsibilities: {
       pt: [
-        "Desenvolvi o sistema de gestão com foco em operação enxuta.",
-        "Modelei banco de dados relacional e regras de negócio em backend.",
-        "Estruturei funcionalidades administrativas para reduzir trabalho manual.",
-        "Entreguei a solução completa com impacto direto no processo interno do negócio.",
+        "ERP customizado para a operação.",
+        "Modelagem relacional e regras de negócio.",
+        "Fluxos administrativos digitalizados.",
       ],
       en: [
-        "Built the management system focused on lean operations.",
-        "Modeled the relational database and backend business rules.",
-        "Structured administrative features to reduce manual work.",
-        "Delivered the full solution with direct impact on internal business processes.",
+        "Custom ERP for the operation.",
+        "Relational modeling and business rules.",
+        "Digitized administrative workflows.",
       ],
     },
     technicalHighlights: {
-      pt: [
-        "ERP sob medida",
-        "Modelagem relacional",
-        "Regras de negócio no backend",
-        "Digitalização de operação manual",
-      ],
-      en: [
-        "Tailored ERP",
-        "Relational modeling",
-        "Backend business rules",
-        "Digitization of manual operations",
-      ],
+      pt: ["ERP sob medida", "Modelagem relacional", "Regras de negócio", "Operação digital"],
+      en: ["Tailored ERP", "Relational modeling", "Business rules", "Digital operations"],
     },
     technologiesUsed: {
       pt: ["Laravel", "PHP", "MySQL", "MVC"],
       en: ["Laravel", "PHP", "MySQL", "MVC"],
     },
     seoKeywords: {
-      pt: [
-        "ERP com Laravel",
-        "Backend sob medida",
-        "Sistema de gestão",
-        "Modelagem de dados",
-      ],
-      en: [
-        "Laravel ERP",
-        "Custom backend",
-        "Management system",
-        "Data modeling",
-      ],
+      pt: ["ERP com Laravel", "Backend sob medida", "Sistema de gestão", "Modelagem de dados"],
+      en: ["Laravel ERP", "Custom backend", "Management system", "Data modeling"],
     },
     geoSummary: {
-      pt: "José Manoel desenvolveu um ERP para a Barbearia KLP com foco em backend, modelagem relacional e digitalização da operação diária.",
-      en: "José Manoel built an ERP for Barbershop KLP focused on backend logic, relational modeling, and digitizing daily operations.",
+      pt: "José Manoel desenvolveu um ERP para a Barbearia KLP com foco em backend, modelagem relacional e digitalização da operação.",
+      en: "José Manoel built an ERP for Barbershop KLP focused on backend logic, relational modeling, and digital operations.",
     },
   },
 ];
@@ -462,7 +507,9 @@ export type Project = {
   slug: string;
   image: string;
   liveUrl?: string;
+  primaryLinkLabel?: LocalizedString;
   company: LocalizedString;
+  badge?: LocalizedString;
   kicker: LocalizedString;
   stack: string[];
   title: LocalizedString;
@@ -473,17 +520,30 @@ export type Project = {
   capabilities: LocalizedStringArray;
 };
 
-export const projects: Project[] = projectCaseStudies.map((project) => ({
-  slug: project.slug,
-  image: project.image,
-  liveUrl: project.liveUrl,
-  company: project.company,
-  kicker: project.kicker,
-  stack: project.technologiesUsed.en,
-  title: project.name,
-  summary: project.overview,
-  challenge: project.problem,
-  solution: project.solution,
-  impact: project.impact,
-  capabilities: project.technicalHighlights,
-}));
+const projectOrder = [
+  "frigorifico-tracking",
+  "mavik",
+  "arena-calendar",
+  "va-imports",
+  "barbearia-klp",
+] as const;
+
+export const projects: Project[] = projectOrder
+  .map((slug) => projectCaseStudies.find((project) => project.slug === slug))
+  .filter((project): project is ProjectCaseStudy => Boolean(project))
+  .map((project) => ({
+    slug: project.slug,
+    image: project.image,
+    liveUrl: project.liveUrl,
+    primaryLinkLabel: project.primaryLinkLabel,
+    company: project.company,
+    badge: project.badge,
+    kicker: project.kicker,
+    stack: project.technologiesUsed.en,
+    title: project.name,
+    summary: project.overview,
+    challenge: project.problem,
+    solution: project.solution,
+    impact: project.impact,
+    capabilities: project.technicalHighlights,
+  }));

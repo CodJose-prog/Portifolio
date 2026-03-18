@@ -39,8 +39,8 @@ export const profile = {
   linkedin: "https://linkedin.com/in/jose-manoel-dev",
   github: "https://github.com/CodJose-prog",
   summary: {
-    pt: "Engenheiro de software com foco em backend, APIs e arquitetura de sistemas. Atuo com Laravel, Node.js, PostgreSQL, Docker e CI/CD para construir produtos robustos, integrações confiáveis e operações preparadas para escala.",
-    en: "Software engineer focused on backend, APIs, and systems architecture. I work with Laravel, Node.js, PostgreSQL, Docker, and CI/CD to build robust products, reliable integrations, and operations prepared for scale.",
+    pt: "Backend Engineer com foco em APIs, arquitetura e operação de sistemas reais.",
+    en: "Backend Engineer focused on APIs, architecture, and real production systems.",
   } satisfies LocalizedString,
   hero: {
     badge: {
@@ -48,16 +48,16 @@ export const profile = {
       en: "Backend Engineer • Laravel • Node.js • APIs",
     } satisfies LocalizedString,
     headline: {
-      pt: "Backend Engineer focado em Laravel, Node.js, APIs e sistemas escaláveis",
-      en: "Backend Engineer focused on Laravel, Node.js, APIs, and scalable systems",
+      pt: "Backend Engineer focado em Laravel, Node.js, APIs e escala",
+      en: "Backend Engineer focused on Laravel, Node.js, APIs, and scale",
     } satisfies LocalizedString,
     subheadline: {
-      pt: "Experiência prática em SaaS multi-tenant, arquitetura backend, PostgreSQL, Docker, CI/CD e integração de serviços para sistemas reais em produção.",
-      en: "Hands-on experience with multi-tenant SaaS, backend architecture, PostgreSQL, Docker, CI/CD, and service integration for real production systems.",
+      pt: "SaaS multi-tenant, PostgreSQL, Docker, CI/CD e integrações para sistemas em produção.",
+      en: "Multi-tenant SaaS, PostgreSQL, Docker, CI/CD, and integrations for production systems.",
     } satisfies LocalizedString,
     availability: {
-      pt: "Disponível para evoluir produtos, APIs e plataformas internas com base sólida de engenharia.",
-      en: "Available to evolve products, APIs, and internal platforms with solid engineering foundations.",
+      pt: "Também construo software ponta a ponta quando o projeto exige.",
+      en: "I also build end-to-end software when the project demands it.",
     } satisfies LocalizedString,
   },
   metrics: [
@@ -68,41 +68,41 @@ export const profile = {
         en: "active tenants",
       },
       detail: {
-        pt: "ArenaCalendar operando com fluxos reais de autenticação, reservas e gestão.",
-        en: "ArenaCalendar running real authentication, booking, and management flows.",
+        pt: "ArenaCalendar em operação real.",
+        en: "ArenaCalendar in real operation.",
       },
     },
     {
       value: "100%",
       label: {
         pt: "isolamento entre tenants",
-        en: "tenant isolation coverage",
+        en: "tenant isolation",
       },
       detail: {
-        pt: "Políticas com PostgreSQL RLS aplicadas às operações multi-tenant.",
-        en: "PostgreSQL RLS policies applied to multi-tenant operations.",
+        pt: "RLS aplicada ao ambiente multi-tenant.",
+        en: "RLS applied to a multi-tenant environment.",
       },
     },
     {
       value: "~70%",
       label: {
         pt: "ganho em deploy",
-        en: "faster deployments",
+        en: "faster deploys",
       },
       detail: {
-        pt: "Publicações reduzidas de até 5 minutos para cerca de 40-90 segundos.",
-        en: "Deploy time reduced from up to 5 minutes to roughly 40-90 seconds.",
+        pt: "De até 5 min para 40-90s.",
+        en: "From up to 5 min to 40-90s.",
       },
     },
     {
       value: "5",
       label: {
-        pt: "clientes backend atendidos",
-        en: "backend clients served",
+        pt: "clientes backend",
+        en: "backend clients",
       },
       detail: {
-        pt: "Na MAVIK, com APIs, integrações e sistemas sob medida.",
-        en: "At MAVIK, with APIs, integrations, and tailored systems.",
+        pt: "APIs e integrações entregues na MAVIK.",
+        en: "APIs and integrations delivered at MAVIK.",
       },
     },
   ] satisfies ProfileMetric[],
@@ -112,37 +112,35 @@ export const profile = {
       en: "Trajectory",
     } satisfies LocalizedString,
     title: {
-      pt: "Da base técnica ao foco claro em engenharia backend",
-      en: "From technical foundations to a clear backend engineering focus",
+      pt: "Base prática, foco atual em backend",
+      en: "Practical foundation, current backend focus",
     } satisfies LocalizedString,
     intro: {
-      pt: "Minha trajetória combina formação técnica, construção de produtos reais e participação direta em decisões de arquitetura. Saí de uma base generalista de desenvolvimento para atuar com mais profundidade em backend, integrações, dados e operação em produção.",
-      en: "My path combines technical education, real product building, and direct participation in architecture decisions. I moved from a generalist development foundation to deeper work in backend, integrations, data, and production operations.",
+      pt: "Comecei construindo software ponta a ponta e hoje concentro minha energia em backend, arquitetura, dados e operação.",
+      en: "I started building end-to-end software and now focus my energy on backend, architecture, data, and operations.",
     } satisfies LocalizedString,
     paragraphs: {
       pt: [
-        "Hoje meu posicionamento é claro: construir backend confiável para sistemas que precisam escalar, integrar serviços e sustentar operações reais.",
-        "Tenho experiência com APIs REST, autenticação, multi-tenant, otimização de consultas, deploy automatizado em Linux, ambientes com Docker e pipelines de CI/CD.",
-        "Também aplico IA de forma prática em automações e fluxos internos quando isso melhora eficiência operacional sem comprometer previsibilidade.",
+        "Atuo com APIs REST, multi-tenant, SQL, Docker, Linux e CI/CD.",
+        "Quando o projeto pede, também entrego web, mobile, integrações e automações com IA.",
       ],
       en: [
-        "Today my positioning is clear: build reliable backend for systems that need to scale, integrate services, and sustain real operations.",
-        "I have experience with REST APIs, authentication, multi-tenant setups, query optimization, automated Linux deployments, Docker-based environments, and CI/CD pipelines.",
-        "I also apply AI pragmatically to internal automations and workflows when it improves operational efficiency without compromising predictability.",
+        "I work with REST APIs, multi-tenant systems, SQL, Docker, Linux, and CI/CD.",
+        "When the project requires it, I also deliver web, mobile, integrations, and AI automations.",
       ],
     } satisfies LocalizedStringArray,
     currentFocus: {
       pt: [
-        "Laravel e Node.js para APIs e serviços backend",
-        "SaaS multi-tenant com PostgreSQL e RLS",
-        "Deploy, observabilidade e rotinas de CI/CD",
-        "Integrações com APIs externas e automações orientadas a negócio",
+        "Laravel e Node.js para APIs e serviços",
+        "SaaS multi-tenant com PostgreSQL RLS",
+        "Deploy, Docker e rotinas de CI/CD",
+        "Integrações externas e automação com IA",
       ],
       en: [
-        "Laravel and Node.js for APIs and backend services",
-        "Multi-tenant SaaS with PostgreSQL and RLS",
-        "Deployment, observability, and CI/CD routines",
-        "External API integrations and business-oriented automations",
+        "Laravel and Node.js for APIs and services",
+        "Multi-tenant SaaS with PostgreSQL RLS",
+        "Deployment, Docker, and CI/CD routines",
+        "External integrations and AI automation",
       ],
     } satisfies LocalizedStringArray,
   },
@@ -154,16 +152,14 @@ export const profile = {
       },
       items: {
         pt: [
-          "PHP (Laravel), Node.js e TypeScript",
-          "Desenvolvimento de APIs REST",
-          "Autenticação com JWT e Sanctum",
-          "Regras de negócio, refatoração e organização de domínio",
+          "Laravel, Node.js e TypeScript",
+          "APIs REST e autenticação",
+          "Regras de negócio e organização de domínio",
         ],
         en: [
-          "PHP (Laravel), Node.js, and TypeScript",
-          "REST API development",
-          "Authentication with JWT and Sanctum",
-          "Business rules, refactoring, and domain organization",
+          "Laravel, Node.js, and TypeScript",
+          "REST APIs and authentication",
+          "Business rules and domain organization",
         ],
       },
     },
@@ -174,14 +170,14 @@ export const profile = {
       },
       items: {
         pt: [
-          "PostgreSQL com RLS e foco em performance",
-          "MySQL para sistemas operacionais e legado",
-          "Modelagem relacional e otimização de consultas SQL",
+          "PostgreSQL com RLS",
+          "MySQL e modelagem relacional",
+          "Otimização de consultas SQL",
         ],
         en: [
-          "PostgreSQL with RLS and performance focus",
-          "MySQL for operational systems and legacy workloads",
-          "Relational modeling and SQL query optimization",
+          "PostgreSQL with RLS",
+          "MySQL and relational modeling",
+          "SQL query optimization",
         ],
       },
     },
@@ -192,16 +188,14 @@ export const profile = {
       },
       items: {
         pt: [
-          "Docker para ambientes consistentes",
-          "CI/CD com GitHub Actions",
-          "Linux Ubuntu, VPS e Nginx",
-          "Deploy automatizado e manutenção em produção",
+          "Docker e GitHub Actions",
+          "Linux, VPS e Nginx",
+          "Deploy e manutenção em produção",
         ],
         en: [
-          "Docker for consistent environments",
-          "CI/CD with GitHub Actions",
-          "Linux Ubuntu, VPS, and Nginx",
-          "Automated deployment and production maintenance",
+          "Docker and GitHub Actions",
+          "Linux, VPS, and Nginx",
+          "Deployment and production maintenance",
         ],
       },
     },
@@ -214,34 +208,12 @@ export const profile = {
         pt: [
           "SaaS multi-tenant",
           "Clean Architecture e Design Patterns",
-          "System Design orientado a escalabilidade",
-          "Separação de responsabilidades e evolução sustentável",
+          "Integrações e evolução sustentável",
         ],
         en: [
           "Multi-tenant SaaS",
           "Clean Architecture and Design Patterns",
-          "Scalability-oriented system design",
-          "Separation of concerns and sustainable evolution",
-        ],
-      },
-    },
-    {
-      title: {
-        pt: "Integrações e Automação",
-        en: "Integrations and Automation",
-      },
-      items: {
-        pt: [
-          "Consumo e integração de APIs externas",
-          "Automação com IA aplicada a rotinas operacionais",
-          "Testes com Jest e PHPUnit em nível básico",
-          "Redis em estudo e aplicação prática",
-        ],
-        en: [
-          "Consumption and integration of external APIs",
-          "AI-driven automation for operational routines",
-          "Basic automated testing with Jest and PHPUnit",
-          "Redis in study and practical use",
+          "Integrations and sustainable evolution",
         ],
       },
     },
@@ -249,42 +221,42 @@ export const profile = {
   differentiators: [
     {
       title: {
-        pt: "SaaS próprio com visão de produto",
-        en: "Own SaaS with product vision",
+        pt: "SaaS próprio",
+        en: "Own SaaS",
       },
       description: {
-        pt: "Experiência construindo e operando o ArenaCalendar, com decisões de arquitetura, deploy e evolução contínua do backend.",
-        en: "Experience building and operating ArenaCalendar, including architecture, deployment, and continuous backend evolution.",
+        pt: "Experiência real de produto, backend e operação.",
+        en: "Real product, backend, and operations experience.",
       },
     },
     {
       title: {
-        pt: "Multi-tenant com PostgreSQL RLS",
-        en: "Multi-tenant with PostgreSQL RLS",
+        pt: "Multi-tenant com RLS",
+        en: "Multi-tenant with RLS",
       },
       description: {
-        pt: "Isolamento de dados aplicado em produção para proteger contexto entre tenants sem depender só da camada de aplicação.",
-        en: "Production-grade data isolation protecting tenant context beyond application-layer checks alone.",
+        pt: "Isolamento de dados aplicado em produção.",
+        en: "Production-grade data isolation.",
       },
     },
     {
       title: {
-        pt: "APIs e integrações que resolvem operação",
-        en: "APIs and integrations that solve operations",
+        pt: "APIs e integrações",
+        en: "APIs and integrations",
       },
       description: {
-        pt: "Experiência criando APIs REST, conectando serviços externos e reduzindo processos manuais em sistemas reais.",
-        en: "Experience building REST APIs, connecting external services, and reducing manual processes in real systems.",
+        pt: "Serviços conectados a operação real.",
+        en: "Services connected to real operations.",
       },
     },
     {
       title: {
-        pt: "Infra e entrega com viés de engenharia",
-        en: "Infra and delivery with an engineering mindset",
+        pt: "Entrega com engenharia",
+        en: "Engineering-minded delivery",
       },
       description: {
-        pt: "Deploy automatizado, Docker, Linux, Nginx e CI/CD tratados como parte do produto, não como etapa posterior.",
-        en: "Automated deployment, Docker, Linux, Nginx, and CI/CD treated as part of the product, not an afterthought.",
+        pt: "Docker, Linux e CI/CD como parte do produto.",
+        en: "Docker, Linux, and CI/CD as part of the product.",
       },
     },
   ] satisfies Differentiator[],
@@ -324,18 +296,16 @@ export const profile = {
   ] satisfies ContactChannel[],
   projectFit: {
     pt: [
-      "APIs e serviços backend para novos produtos",
-      "Evolução de sistemas Laravel e Node.js já em produção",
-      "SaaS multi-tenant, autenticação e isolamento de dados",
-      "Integrações com APIs externas, automações e rotinas operacionais",
-      "Ajustes de performance, deploy e confiabilidade de ambiente",
+      "APIs e serviços backend",
+      "Sistemas Laravel e Node.js",
+      "SaaS multi-tenant e integrações",
+      "Deploy, performance e confiabilidade",
     ],
     en: [
-      "APIs and backend services for new products",
-      "Evolution of Laravel and Node.js systems already in production",
-      "Multi-tenant SaaS, authentication, and data isolation",
-      "External API integrations, automations, and operational workflows",
-      "Performance, deployment, and environment reliability improvements",
+      "APIs and backend services",
+      "Laravel and Node.js systems",
+      "Multi-tenant SaaS and integrations",
+      "Deployment, performance, and reliability",
     ],
   } satisfies LocalizedStringArray,
 };
