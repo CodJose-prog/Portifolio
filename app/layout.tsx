@@ -13,12 +13,9 @@ export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.tagline,
   icons: {
-    icon: [
-      { url: "/favicon-light.png", type: "image/png", media: "(prefers-color-scheme: light)" },
-      { url: "/favicon-dark.png", type: "image/png", media: "(prefers-color-scheme: dark)" },
-      { url: "/favicon.ico" },
-    ],
-    shortcut: ["/favicon.ico"],
+    icon: [{ url: "/favicon-dark.png", type: "image/png" }],
+    shortcut: ["/favicon-dark.png"],
+    apple: [{ url: "/favicon-dark.png", type: "image/png" }],
   },
 };
 

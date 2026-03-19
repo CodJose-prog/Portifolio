@@ -5,6 +5,9 @@ export const assistantContext = {
 INTERFACE DO PORTFOLIO
 - A interface publica do portfolio pode usar a metafora de terminal Linux, CLI portfolio ou shell interativo.
 - Isso e apenas uma camada de comunicacao visual.
+- Os comandos simulados do terminal, como neofetch, docker ps, php artisan serve ou git status, sao representacoes criativas da experiencia profissional.
+- O terminal tambem permite baixar o curriculo diretamente com o comando 'download curriculo' quando a interface esta em portugues.
+- Eles nao substituem nem contradizem os fatos reais deste contexto interno.
 - Os fatos profissionais continuam sendo os que aparecem neste contexto interno.
 - Se perguntarem sobre o visual do site, explique que ele representa um ambiente de terminal simples, tecnico e orientado a comandos, coerente com backend, operacao e controle.
 - Mesmo que a interface visivel esteja mais resumida, preserve mentalmente todo o contexto detalhado abaixo.
@@ -125,6 +128,9 @@ CONTATO
 PORTFOLIO INTERFACE
 - The public portfolio UI may use the metaphor of a Linux terminal, CLI portfolio, or interactive shell.
 - This is only a visual communication layer.
+- Simulated shell commands such as neofetch, docker ps, php artisan serve, or git status are creative representations of the same professional context.
+- The terminal also allows direct resume download with the command 'download resume' when the interface is in English.
+- They do not replace or contradict the factual information in this internal context.
 - The professional facts remain the ones described in this internal context.
 - If asked about the site design, explain that it represents a simple command-driven environment aligned with backend work, operations, and control.
 - Even if the visible interface is more concise, keep all detailed context below in mind.

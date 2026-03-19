@@ -48,8 +48,8 @@ export const profile = {
       en: "Backend Engineer • Laravel • Node.js • APIs",
     } satisfies LocalizedString,
     headline: {
-      pt: "Backend Engineer focado em Laravel, Node.js, APIs e escala",
-      en: "Backend Engineer focused on Laravel, Node.js, APIs, and scale",
+      pt: "José Manoel - Backend Engineer",
+      en: "José Manoel - Backend Engineer",
     } satisfies LocalizedString,
     subheadline: {
       pt: "SaaS multi-tenant, PostgreSQL, Docker, CI/CD e integrações para sistemas em produção.",

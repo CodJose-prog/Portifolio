@@ -105,6 +105,7 @@ h4 {
   min-height: calc(100dvh - 8rem);
   flex: 1;
   flex-direction: column;
+  overflow: hidden;
   border: 1px solid rgba(0, 255, 136, 0.16);
   background: #0b0b0b;
 }
@@ -129,6 +130,41 @@ h4 {
 .terminal-output {
   display: grid;
   gap: 0.35rem;
+}
+
+.terminal-footer {
+  position: sticky;
+  bottom: 0;
+  border-top: 1px solid rgba(0, 255, 136, 0.12);
+  background: #0b0b0b;
+}
+
+.terminal-toolbar {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem 0;
+  font-size: 0.78rem;
+}
+
+.terminal-toolbar-desktop {
+  display: flex;
+}
+
+.terminal-toolbar-mobile {
+  display: none;
+}
+
+.terminal-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.terminal-chip-row-mobile {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
 }
 
 .terminal-prompt {
@@ -173,33 +209,80 @@ h4 {
   align-items: center;
   gap: 0.75rem;
   border-top: 1px solid rgba(0, 255, 136, 0.12);
-  padding: 0.9rem 1rem;
+  padding: 0.9rem 1rem 0.55rem;
 }
 
 .terminal-input {
   flex: 1;
+  min-width: 0;
   border: 0;
   background: transparent;
   color: var(--foreground);
   outline: none;
 }
 
+.terminal-input:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
 .terminal-input::placeholder {
   color: #5f5f5f;
 }
 
-.terminal-chip {
+.terminal-chip,
+.terminal-action,
+.terminal-hint-action {
   border: 1px solid rgba(0, 255, 136, 0.16);
   background: transparent;
   color: #b6b6b6;
-  padding: 0.3rem 0.55rem;
-  font-size: 0.78rem;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
 }
 
-.terminal-chip:hover {
+.terminal-chip {
+  padding: 0.3rem 0.55rem;
+  font-size: 0.78rem;
+}
+
+.terminal-chip-suggestion {
+  color: var(--primary);
+}
+
+.terminal-chip:hover,
+.terminal-action:hover,
+.terminal-hint-action:hover {
   border-color: rgba(0, 255, 136, 0.35);
   color: var(--primary);
+}
+
+.terminal-chip:disabled,
+.terminal-action:disabled,
+.terminal-hint-action:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.terminal-action {
+  padding: 0.24rem 0.55rem;
+  font-size: 0.72rem;
+  text-transform: lowercase;
+}
+
+.terminal-hint-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.25rem 1rem 0.95rem;
+  font-size: 0.72rem;
+}
+
+.terminal-hint-action {
+  padding: 0.22rem 0.48rem;
+  font-size: 0.72rem;
 }
 
 .terminal-cursor {
@@ -209,6 +292,11 @@ h4 {
   background: var(--primary);
   vertical-align: text-bottom;
   animation: terminal-blink 1s steps(1) infinite;
+}
+
+.terminal-cursor-inline {
+  flex: none;
+  margin-top: 0.15rem;
 }
 
 .terminal-dot {
@@ -225,6 +313,62 @@ h4 {
   letter-spacing: 0.08em;
   font-size: 0.72rem;
   font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+
+  .terminal-shell {
+    min-height: calc(100dvh - 4rem);
+  }
+
+  .terminal-window {
+    min-height: calc(100dvh - 6.6rem);
+  }
+
+  .terminal-titlebar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0.75rem;
+  }
+
+  .terminal-body {
+    padding: 0.85rem 0.75rem;
+  }
+
+  .terminal-toolbar {
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 0.65rem 0.75rem 0;
+  }
+
+  .terminal-toolbar-desktop {
+    display: none;
+  }
+
+  .terminal-toolbar-mobile {
+    display: flex;
+  }
+
+  .terminal-chip-row-mobile {
+    display: flex;
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .terminal-input-row {
+    align-items: flex-start;
+    gap: 0.55rem;
+    padding: 0.8rem 0.75rem 0.5rem;
+  }
+
+  .terminal-hint-row {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0.2rem 0.75rem 0.8rem;
+  }
 }
 
 @keyframes terminal-blink {
